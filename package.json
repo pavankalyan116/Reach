@@ -1,0 +1,9 @@
+{
+  "name": "reach-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix ReachLanding run dev",
+    "build": "npm --prefix ReachLanding run build",
+    "lint": "npm --prefix ReachLanding run lint"
+  }
+}

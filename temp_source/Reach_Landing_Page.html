@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reach — Multi-channel outreach, one campaign at a time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,420;9..144,520;9..144,600;9..144,680&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#EA580C; --brand-dk:#C2410C; --brand-soft:#EA580C12; --brand-soft2:#EA580C0a;
+    --ink:#1B1712; --muted:#6B625A; --faint:#9A8F84;
+    --paper:#FBF7F3; --surface:#FFFFFF; --surface-2:#FCFAF8;
+    --border:#EEE7DF; --border-strong:#DDD2C6;
+    --good:#137A56; --good-soft:#137A5614;
+    --info:#2563EB; --info-soft:#2563EB14;
+    --warn:#B4652F; --warn-soft:#B4652F14;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --container: 1160px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:var(--container); margin:0 auto; padding:0 40px; }
+  h1,h2,h3{ font-family:var(--serif); font-weight:600; letter-spacing:-0.01em; color:var(--ink); margin:0; }
+  p{ margin:0; }
+  .muted{ color:var(--muted); }
+
+  /* ---------------- focus ---------------- */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--brand-dk); outline-offset:3px; border-radius:4px;
+  }
+
+  /* ---------------- buttons ---------------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--sans); font-weight:600; font-size:0.97rem;
+    padding:13px 24px; border-radius:9px; cursor:pointer; border:1px solid transparent;
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ background:#33291d; }
+  .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--border-strong); }
+  .btn-ghost:hover{ border-color:var(--ink); }
+  .btn-sm{ padding:9px 16px; font-size:0.88rem; }
+
+  /* ---------------- nav ---------------- */
+  header.nav{
+    position:sticky; top:0; z-index:40;
+    background:rgba(251,247,243,.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 40px; max-width:var(--container); margin:0 auto;
+  }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:600; font-size:1.28rem; }
+  .logo .mk{
+    width:30px; height:30px; border-radius:8px; background:var(--brand);
+    display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .logo .mk svg{ width:16px; height:16px; }
+  nav.links{ display:flex; align-items:center; gap:34px; }
+  nav.links a{ font-size:0.93rem; font-weight:500; color:var(--muted); transition:color .15s ease; }
+  nav.links a:hover{ color:var(--ink); }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .nav-cta .signin{ font-size:0.93rem; font-weight:500; color:var(--muted); }
+  .nav-cta .signin:hover{ color:var(--ink); }
+
+  /* ---------------- hero ---------------- */
+  .hero{ padding:84px 0 40px; }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  }
+  .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.86rem; font-weight:600; color:var(--brand-dk);
+    background:var(--brand-soft); border:1px solid #EA580C26;
+    padding:7px 14px 7px 11px; border-radius:999px; margin-bottom:22px;
+  }
+  .kicker .pip{ width:6px; height:6px; border-radius:50%; background:var(--brand); }
+  h1.headline{
+    font-size:clamp(2.5rem, 4.1vw, 3.55rem); line-height:1.06; letter-spacing:-0.015em;
+    max-width:12.6em;
+  }
+  .hero p.lede{
+    margin-top:22px; font-size:1.12rem; line-height:1.65; color:var(--muted);
+    max-width:38em; font-weight:400;
+  }
+  .hero-ctas{ display:flex; align-items:center; gap:16px; margin-top:32px; }
+  .hero-note{ margin-top:26px; font-size:0.87rem; color:var(--faint); }
+
+  /* ---- hero illustration ---- */
+  .hero-art{ position:relative; }
+  .art-card{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:20px; padding:30px 28px 26px;
+    box-shadow:0 1px 2px rgba(24,20,14,.04), 0 20px 44px -14px rgba(24,20,14,.14);
+  }
+  .art-card .cap{ font-size:0.82rem; color:var(--faint); margin-bottom:18px; font-weight:500; }
+  .art-svg{ width:100%; height:auto; }
+
+  .dot-travel{
+    animation:travel 3.2s cubic-bezier(.45,.05,.55,.95) infinite;
+    offset-rotate:0deg;
+  }
+  @keyframes travel{
+    0%{ offset-distance:0%; opacity:0; }
+    6%{ opacity:1; }
+    46%{ opacity:1; }
+    52%{ offset-distance:100%; opacity:0; }
+    100%{ offset-distance:100%; opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .dot-travel{ animation:none; opacity:0; }
+  }
+
+  /* ---------------- channel strip ---------------- */
+  .strip{ border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:26px 0; margin-top:66px; }
+  .strip-row{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
+  .strip-text{ font-size:0.98rem; color:var(--muted); }
+  .strip-text strong{ color:var(--ink); font-weight:600; }
+  .strip-chans{ display:flex; gap:10px; }
+  .chan-chip{
+    display:flex; align-items:center; gap:7px;
+    font-size:0.86rem; font-weight:600; color:var(--ink);
+    border:1px solid var(--border-strong); border-radius:999px; padding:7px 14px;
+  }
+  .chan-chip .d{ width:8px; height:8px; border-radius:50%; }
+
+  /* ---------------- section shell ---------------- */
+  section{ padding:72px 0; }
+  section.tight{ padding-top:0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(1.7rem,2.6vw,2.15rem); line-height:1.16; }
+  .section-head p{ margin-top:14px; font-size:1.02rem; color:var(--muted); line-height:1.6; }
+
+  /* ---------------- split feature ---------------- */
+  .split{ display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:start; }
+  .split.reverse{ grid-template-columns:1.05fr 0.95fr; }
+  .split.reverse .split-copy{ order:2; }
+  .split.reverse .split-visual{ order:1; }
+  .split-copy h2{ font-size:clamp(1.6rem,2.4vw,2rem); line-height:1.18; max-width:11.5em; }
+  .split-copy p{ margin-top:16px; color:var(--muted); font-size:1.02rem; max-width:36em; }
+  .split-list{ margin-top:24px; display:flex; flex-direction:column; gap:14px; }
+  .split-list li{ list-style:none; display:flex; gap:12px; align-items:flex-start; font-size:0.96rem; color:var(--ink); }
+  .split-list svg{ flex:none; margin-top:3px; width:17px; height:17px; }
+
+  .mock{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px;
+    box-shadow:0 1px 2px rgba(24,20,14,.04), 0 18px 40px -16px rgba(24,20,14,.14);
+    overflow:hidden;
+  }
+  .mock-bar{ display:flex; gap:6px; padding:14px 16px; border-bottom:1px solid var(--border); }
+  .mock-bar span{ width:9px; height:9px; border-radius:50%; background:var(--border-strong); }
+  .mock-tabs{ display:flex; gap:4px; padding:14px 16px 0; }
+  .mock-tab{ font-size:0.8rem; font-weight:600; padding:8px 14px; border-radius:8px 8px 0 0; color:var(--faint); }
+  .mock-tab.active{ background:var(--surface-2); color:var(--ink); border:1px solid var(--border); border-bottom:none; }
+  .mock-body{ padding:22px 20px 26px; background:var(--surface-2); }
+  .mock-field{ margin-bottom:14px; }
+  .mock-field .lb{ font-size:0.74rem; font-weight:600; color:var(--faint); margin-bottom:6px; }
+  .mock-field .val{ background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:10px 12px; font-size:0.86rem; color:var(--ink); }
+  .mock-chip-row{ display:flex; gap:8px; margin-top:16px; }
+  .mock-chip{ font-size:0.76rem; font-weight:600; padding:6px 10px; border-radius:999px; }
+
+  /* ---------------- how it works ---------------- */
+  .flow{ position:relative; }
+  .flow-line{
+    position:absolute; left:23px; top:14px; bottom:14px; width:1px;
+    background:linear-gradient(var(--border-strong), var(--border-strong));
+  }
+  .flow-steps{ display:flex; flex-direction:column; gap:0; }
+  .flow-step{ display:grid; grid-template-columns:48px 1fr; gap:24px; padding:26px 0; position:relative; }
+  .flow-step:first-child{ padding-top:0; }
+  .flow-num{
+    width:48px; height:48px; border-radius:50%; background:var(--surface);
+    border:1.5px solid var(--border-strong); display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-weight:600; font-size:1.1rem; color:var(--brand-dk);
+    position:relative; z-index:1;
+  }
+  .flow-content h3{ font-size:1.12rem; font-weight:600; margin-bottom:6px; }
+  .flow-content p{ color:var(--muted); font-size:0.96rem; max-width:44em; }
+  .flow-content .tag{
+    display:inline-block; margin-top:10px; font-size:0.78rem; font-weight:600;
+    color:var(--brand-dk); background:var(--brand-soft); padding:4px 10px; border-radius:6px;
+  }
+
+  /* ---------------- bento ---------------- */
+  .bento{
+    display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:minmax(150px,auto); gap:18px;
+  }
+  .b-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px;
+    padding:26px 26px; display:flex; flex-direction:column; gap:12px;
+    transition:border-color .15s ease;
+  }
+  .b-card:hover{ border-color:var(--border-strong); }
+  .b-card.large{ grid-column:span 4; grid-row:span 2; }
+  .b-card.med{ grid-column:span 2; grid-row:span 2; }
+  .b-card.wide{ grid-column:span 3; }
+  .b-icon{
+    width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    flex:none;
+  }
+  .b-icon svg{ width:19px; height:19px; }
+  .b-card h3{ font-size:1.08rem; font-weight:600; font-family:var(--sans); letter-spacing:-0.005em; }
+  .b-card p{ color:var(--muted); font-size:0.93rem; line-height:1.55; }
+  .b-card.large h3{ font-size:1.3rem; }
+  .b-card.large p{ font-size:0.98rem; max-width:30em; }
+  .b-foot{ margin-top:auto; display:flex; gap:8px; flex-wrap:wrap; }
+  .b-pill{ font-size:0.74rem; font-weight:600; padding:5px 10px; border-radius:999px; border:1px solid var(--border-strong); color:var(--muted); }
+
+  /* ---------------- deliverability ---------------- */
+  .deliver{ background:var(--surface); border:1px solid var(--border); border-radius:22px; padding:52px 52px; }
+  .deliver-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .ramp-card{ background:var(--surface-2); border:1px solid var(--border); border-radius:14px; padding:22px 22px 16px; }
+  .ramp-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px; }
+  .ramp-head .t{ font-size:0.85rem; font-weight:600; color:var(--ink); }
+  .ramp-head .v{ font-size:0.78rem; color:var(--faint); }
+  .checklist{ display:flex; flex-direction:column; gap:0; margin-top:22px; }
+  .check-row{ display:flex; align-items:center; justify-content:space-between; padding:13px 0; border-top:1px solid var(--border); font-size:0.93rem; }
+  .check-row:first-child{ border-top:none; }
+  .check-status{ display:flex; align-items:center; gap:7px; font-size:0.8rem; font-weight:600; }
+  .check-status .d{ width:7px; height:7px; border-radius:50%; }
+
+  /* ---------------- cta band ---------------- */
+  .cta-band{
+    background:var(--ink); border-radius:24px; padding:64px 56px;
+    display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+  }
+  .cta-band h2{ color:var(--paper); font-size:clamp(1.7rem,2.8vw,2.3rem); max-width:11em; line-height:1.14; }
+  .cta-band p{ color:#C9BFB2; margin-top:12px; font-size:1rem; max-width:30em; }
+  .cta-band-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .cta-band .btn-primary{ background:var(--brand); color:#fff; }
+  .cta-band .btn-primary:hover{ background:var(--brand-dk); }
+  .cta-band .btn-ghost{ border-color:#4A4038; color:var(--paper); }
+  .cta-band .btn-ghost:hover{ border-color:var(--paper); }
+
+  /* ---------------- footer ---------------- */
+  footer{ padding:64px 0 40px; border-top:1px solid var(--border); margin-top:40px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; }
+  .foot-brand .logo{ margin-bottom:14px; }
+  .foot-brand p{ color:var(--muted); font-size:0.92rem; max-width:26em; line-height:1.6; }
+  .foot-col h4{ font-size:0.86rem; font-weight:600; color:var(--ink); margin-bottom:14px; }
+  .foot-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .foot-col a{ font-size:0.9rem; color:var(--muted); }
+  .foot-col a:hover{ color:var(--ink); }
+  .foot-bottom{
+    margin-top:56px; padding-top:24px; border-top:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    font-size:0.84rem; color:var(--faint);
+  }
+
+  @media (max-width: 900px){
+    .wrap{ padding:0 22px; }
+    .nav-row{ padding:16px 22px; }
+    nav.links{ display:none; }
+    .hero{ padding:52px 0 30px; }
+    .hero-grid, .split, .split.reverse{ grid-template-columns:1fr; }
+    .split.reverse .split-copy{ order:1; } .split.reverse .split-visual{ order:2; }
+    .hero-art{ order:-1; }
+    .deliver-grid{ grid-template-columns:1fr; }
+    .bento{ grid-template-columns:1fr 1fr; }
+    .b-card.large{ grid-column:span 2; grid-row:span 1; }
+    .b-card.med{ grid-column:span 1; }
+    .b-card.wide{ grid-column:span 2; }
+    .cta-band{ padding:44px 30px; }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+    section{ padding:64px 0; }
+    .deliver{ padding:34px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-row">
+    <a href="#top" class="logo">
+      <span class="mk"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12H21M13 5L21 12L13 19" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Reach
+    </a>
+    <nav class="links">
+      <a href="#channels">Channels</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#platform">Platform</a>
+      <a href="#deliverability">Deliverability</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#" class="signin">Sign in</a>
+      <a href="#" class="btn btn-primary btn-sm">Start free</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="kicker"><span class="pip"></span>Email, WhatsApp and SMS in one campaign</span>
+        <h1 class="headline">Write the message once. Reach lands it everywhere.</h1>
+        <p class="lede">Reach is where campaigns get built, sequenced, and delivered — across every channel your recipients actually use, with automatic follow-ups and AI that drafts, scores, and replies alongside you.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-primary">Start a campaign</a>
+          <a href="#workflow" class="btn btn-ghost">See how sequences work</a>
+        </div>
+        <p class="hero-note">No credit card needed to try the free plan.</p>
+      </div>
+
+      <div class="hero-art">
+        <div class="art-card">
+          <div class="cap">One message, sent down three paths</div>
+          <svg class="art-svg" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- paths -->
+            <path id="pathEmail" d="M40,60 C 180,60 260,150 400,150" stroke="#EEE7DF" stroke-width="2" fill="none"/>
+            <path id="pathWa"    d="M40,150 C 180,150 260,150 400,150" stroke="#EEE7DF" stroke-width="2" fill="none"/>
+            <path id="pathSms"   d="M40,240 C 180,240 260,150 400,150" stroke="#EEE7DF" stroke-width="2" fill="none"/>
+
+            <!-- source nodes -->
+            <g transform="translate(6,42)">
+              <rect width="68" height="36" rx="9" fill="#EA580C14" stroke="#EA580C33"/>
+              <path d="M12 14 L34 26 L56 14" stroke="#C2410C" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(0,0)"/>
+              <rect x="12" y="10" width="44" height="18" rx="3" fill="none" stroke="#C2410C" stroke-width="1.6"/>
+            </g>
+            <g transform="translate(6,132)">
+              <rect width="68" height="36" rx="9" fill="#137A5614" stroke="#137A5633"/>
+              <path d="M20 10 h28 a6 6 0 0 1 6 6 v10 a6 6 0 0 1 -6 6 h-16 l-8 7 v-7 h-4 a6 6 0 0 1 -6 -6 v-10 a6 6 0 0 1 6 -6 z" fill="none" stroke="#137A56" stroke-width="1.6"/>
+            </g>
+            <g transform="translate(6,222)">
+              <rect width="68" height="36" rx="9" fill="#2563EB14" stroke="#2563EB33"/>
+              <rect x="20" y="9" width="28" height="18" rx="3" fill="none" stroke="#2563EB" stroke-width="1.6"/>
+              <path d="M26 27 v4 l5 -4" fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+
+            <!-- recipient node -->
+            <g transform="translate(396,128)">
+              <circle cx="22" cy="22" r="22" fill="#1B1712"/>
+              <circle cx="22" cy="16" r="6.5" fill="#FBF7F3"/>
+              <path d="M10 34c2.5-7 9-9 12-9s9.5 2 12 9" stroke="#FBF7F3" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+
+            <!-- travelling dots -->
+            <circle r="4.2" fill="#C2410C" class="dot-travel" style="offset-path:path('M40,60 C 180,60 260,150 400,150'); animation-delay:0s;"/>
+            <circle r="4.2" fill="#137A56" class="dot-travel" style="offset-path:path('M40,150 C 180,150 260,150 400,150'); animation-delay:1.05s;"/>
+            <circle r="4.2" fill="#2563EB" class="dot-travel" style="offset-path:path('M40,240 C 180,240 260,150 400,150'); animation-delay:2.1s;"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNEL STRIP -->
+  <div class="strip" id="channels">
+    <div class="wrap strip-row">
+      <div class="strip-text"><strong>One draft, every channel.</strong> Content adapts per channel — the same campaign, sent the way each recipient prefers.</div>
+      <div class="strip-chans">
+        <span class="chan-chip"><span class="d" style="background:#EA580C"></span>Email</span>
+        <span class="chan-chip"><span class="d" style="background:#137A56"></span>WhatsApp</span>
+        <span class="chan-chip"><span class="d" style="background:#2563EB"></span>SMS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPLIT: content editor -->
+  <section>
+    <div class="wrap split">
+      <div class="split-copy">
+        <h2>Draft content that fits each channel, without three separate workflows</h2>
+        <p>Author subject lines, WhatsApp copy, and SMS text side by side on the same campaign. Switch tabs, not tools — every channel stays in sync with the same recipient list and send schedule.</p>
+        <ul class="split-list">
+          <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#EA580C" stroke-width="1.6"/><path d="M6.5 10.3l2.3 2.3 4.7-5" stroke="#EA580C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalization tokens pull straight from your imported recipient data</li>
+          <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#EA580C" stroke-width="1.6"/><path d="M6.5 10.3l2.3 2.3 4.7-5" stroke="#EA580C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Branded email templates keep formatting consistent without writing HTML</li>
+          <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#EA580C" stroke-width="1.6"/><path d="M6.5 10.3l2.3 2.3 4.7-5" stroke="#EA580C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>A shared template library means good copy gets reused, not rewritten</li>
+        </ul>
+      </div>
+      <div class="split-visual">
+        <div class="mock">
+          <div class="mock-bar"><span></span><span></span><span></span></div>
+          <div class="mock-tabs">
+            <div class="mock-tab active">Email</div>
+            <div class="mock-tab">WhatsApp</div>
+            <div class="mock-tab">SMS</div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-field">
+              <div class="lb">Subject</div>
+              <div class="val">Quick question about {{company}}'s Q3 plans</div>
+            </div>
+            <div class="mock-field">
+              <div class="lb">Body</div>
+              <div class="val">Hi {{first_name}}, noticed {{company}} just expanded into…</div>
+            </div>
+            <div class="mock-chip-row">
+              <span class="mock-chip" style="background:#EA580C14;color:#C2410C;">AI-scored: 92/100</span>
+              <span class="mock-chip" style="background:#137A5614;color:#137A56;">No spam triggers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="workflow">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How a campaign moves, start to reply</h2>
+        <p>Five stages, most of them automatic once you've set the first one up.</p>
+      </div>
+      <div class="flow">
+        <div class="flow-line"></div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-content">
+              <h3>Import and validate recipients</h3>
+              <p>Upload a spreadsheet, and Reach checks every row for missing or malformed contact details before anything sends.</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-content">
+              <h3>Draft and review content</h3>
+              <p>Write by hand or let AI draft a first pass per channel, then run the automatic review for spam risk and inbox placement.</p>
+              <span class="tag">AI-assisted</span>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-content">
+              <h3>Send the first touch</h3>
+              <p>Delivers through your connected mailbox, SMTP, or the SMS gateway — warmed-up and rate-limited so a new sender doesn't spike.</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">4</div>
+            <div class="flow-content">
+              <h3>Follow up automatically</h3>
+              <p>A sequence of timed steps runs across channels on its own, and stops the moment a recipient replies or opts out.</p>
+              <span class="tag">Runs unattended</span>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">5</div>
+            <div class="flow-content">
+              <h3>Track replies, let the agent help</h3>
+              <p>Every open and reply lands in one inbox view. The reply agent can draft, hold for approval, or answer on its own — your call.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO: platform -->
+  <section id="platform">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Everything a real sending operation needs</h2>
+        <p>Not just a send button — the tooling around it that keeps campaigns landing in the inbox and the workspace under control.</p>
+      </div>
+      <div class="bento">
+        <div class="b-card large">
+          <div class="b-icon" style="background:#EA580C14;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.1 6.3H21l-5.3 4 2 6.2-5.7-4.1-5.7 4.1 2-6.2L3 9.3h6.9z" stroke="#C2410C" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <h3>AI content and review, built in</h3>
+          <p>Generate on-brand subject lines and body copy per channel and per follow-up step, then score the result for spam triggers and inbox placement before you commit to sending.</p>
+          <div style="margin-top:6px; background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:14px 16px;">
+            <div style="font-size:0.84rem; color:var(--muted); font-style:italic;">"Quick question about {{company}}'s Q3 plans"</div>
+            <div style="display:flex; gap:8px; margin-top:10px;">
+              <span class="b-pill" style="border-color:#EA580C33; color:#C2410C;">92 / 100 inbox score</span>
+              <span class="b-pill" style="border-color:#137A5633; color:#137A56;">No spam triggers</span>
+            </div>
+          </div>
+          <div class="b-foot"><span class="b-pill">Draft</span><span class="b-pill">Improve</span><span class="b-pill">Score</span></div>
+        </div>
+        <div class="b-card med">
+          <div class="b-icon" style="background:#2563EB14;"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H8l-5 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#2563EB" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <h3>Reply agent</h3>
+          <p>Classifies inbound replies, drafts a response, and sends, holds, or blocks it based on a policy your team sets.</p>
+          <div class="b-foot"><span class="b-pill">Assist</span><span class="b-pill">Approval</span><span class="b-pill">Autonomous</span></div>
+        </div>
+        <div class="b-card med">
+          <div class="b-icon" style="background:#137A5614;"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2.5" stroke="#137A56" stroke-width="1.6"/><path d="M3 9h18" stroke="#137A56" stroke-width="1.6"/></svg></div>
+          <h3>Multi-tenant workspaces</h3>
+          <p>Separate tenants, plans, and usage limits with role-based access down to which projects a person can touch.</p>
+          <div class="b-foot"><span class="b-pill">Free</span><span class="b-pill">Starter</span><span class="b-pill">Pro</span><span class="b-pill">Enterprise</span></div>
+        </div>
+        <div class="b-card wide">
+          <div class="b-icon" style="background:#B4652F14;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21c4-4 8-8.5 8-13a8 8 0 10-16 0c0 4.5 4 9 8 13z" stroke="#B4652F" stroke-width="1.6"/><circle cx="12" cy="8" r="2.6" stroke="#B4652F" stroke-width="1.6"/></svg></div>
+          <h3>Suppression, honored everywhere</h3>
+          <p>Opt-outs and bounces are excluded automatically from every send and every follow-up step, per project — no manual list-scrubbing.</p>
+        </div>
+        <div class="b-card wide">
+          <div class="b-icon" style="background:#EA580C14;"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Tracking that answers the actual question</h3>
+          <p>Opens, replies, and engagement status per recipient, exportable as a report — not just a top-line send count.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABILITY -->
+  <section id="deliverability">
+    <div class="wrap">
+      <div class="deliver">
+        <div class="deliver-grid">
+          <div>
+            <h2 style="font-size:clamp(1.6rem,2.4vw,2rem); max-width:11em; line-height:1.18;">Protect the sender reputation your campaigns depend on</h2>
+            <p class="muted" style="margin-top:16px; font-size:1.02rem; max-width:34em;">A new mailbox that sends at full volume on day one gets flagged. Reach ramps it up gradually, and checks the DNS records that inbox providers actually trust.</p>
+            <div class="checklist">
+              <div class="check-row">SPF record <span class="check-status" style="color:#137A56;"><span class="d" style="background:#137A56;"></span>Pass</span></div>
+              <div class="check-row">DKIM signature <span class="check-status" style="color:#137A56;"><span class="d" style="background:#137A56;"></span>Pass</span></div>
+              <div class="check-row">DMARC policy <span class="check-status" style="color:#B4652F;"><span class="d" style="background:#B4652F;"></span>Needs attention</span></div>
+              <div class="check-row">MX records <span class="check-status" style="color:#137A56;"><span class="d" style="background:#137A56;"></span>Pass</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="ramp-card">
+              <div class="ramp-head"><span class="t">Mailbox warm-up</span><span class="v">Day 12 of 30</span></div>
+              <svg viewBox="0 0 380 160" width="100%" height="160">
+                <line x1="0" y1="130" x2="380" y2="130" stroke="#EEE7DF" stroke-width="1"/>
+                <line x1="0" y1="90" x2="380" y2="90" stroke="#EEE7DF" stroke-width="1"/>
+                <line x1="0" y1="50" x2="380" y2="50" stroke="#EEE7DF" stroke-width="1"/>
+                <path d="M0,128 C 60,126 90,118 130,108 C 180,96 220,72 270,52 C 310,36 340,26 380,18"
+                      fill="none" stroke="#EA580C" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M0,128 C 60,126 90,118 130,108 C 180,96 220,72 270,52 C 310,36 340,26 380,18 L380,150 L0,150 Z"
+                      fill="#EA580C0f"/>
+                <circle cx="130" cy="108" r="4" fill="#C2410C"/>
+                <circle cx="270" cy="52" r="4" fill="#C2410C"/>
+              </svg>
+              <div style="display:flex; justify-content:space-between; font-size:0.76rem; color:var(--faint); margin-top:4px;">
+                <span>Day 1 · 20/day</span><span>Day 30 · 400/day</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Send your first campaign this week.</h2>
+          <p>Set up a project, import a list, and let the first sequence run — most teams are sending inside an hour.</p>
+        </div>
+        <div class="cta-band-actions">
+          <a href="#" class="btn btn-primary">Start a campaign</a>
+          <a href="#" class="btn btn-ghost">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo">
+          <span class="mk"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12H21M13 5L21 12L13 19" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Reach
+        </a>
+        <p>Multi-channel campaign software for teams who need Email, WhatsApp, and SMS to work as one workflow, not three.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#channels">Channels</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#platform">Platform</a></li>
+          <li><a href="#deliverability">Deliverability</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Reach. All rights reserved.</span>
+      <span>Built for teams sending real outreach, not spam.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
