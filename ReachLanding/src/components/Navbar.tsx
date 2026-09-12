@@ -23,10 +23,10 @@ export const Navbar: React.FC = () => {
         </Link>
 
         <nav className="links">
-          <a href="#channels">Channels</a>
-          <a href="#workflow">Workflow</a>
-          <a href="#platform">Platform</a>
+          <a href="#product">Product</a>
+          <a href="#how-it-works">How it works</a>
           <a href="#deliverability">Deliverability</a>
+          <a href="#trust">Customers</a>
         </nav>
 
         <div className="nav-cta">
@@ -52,61 +52,15 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div
-          style={{
-            background: 'var(--surface)',
-            borderBottom: '1px solid var(--border)',
-            padding: '20px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
-          }}
-        >
-          <a
-            href="#channels"
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ fontWeight: 500, color: 'var(--ink)' }}
-          >
-            Channels
-          </a>
-          <a
-            href="#workflow"
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ fontWeight: 500, color: 'var(--ink)' }}
-          >
-            Workflow
-          </a>
-          <a
-            href="#platform"
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ fontWeight: 500, color: 'var(--ink)' }}
-          >
-            Platform
-          </a>
-          <a
-            href="#deliverability"
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ fontWeight: 500, color: 'var(--ink)' }}
-          >
-            Deliverability
-          </a>
-          <div style={{ display: 'flex', gap: '12px', marginTop: '8px' }}>
-            <Link
-              to="/login"
-              className="btn btn-ghost btn-sm"
-              style={{ flex: 1, textAlign: 'center' }}
-            >
-              Sign in
-            </Link>
-            <Link
-              to="/dashboard"
-              className="btn btn-primary btn-sm"
-              style={{ flex: 1, textAlign: 'center' }}
-            >
-              Start free
-            </Link>
+        <div className="mobile-drawer">
+          <a href="#product" onClick={() => setMobileMenuOpen(false)}>Product</a>
+          <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)}>How it works</a>
+          <a href="#deliverability" onClick={() => setMobileMenuOpen(false)}>Deliverability</a>
+          <a href="#trust" onClick={() => setMobileMenuOpen(false)}>Customers</a>
+          <div className="drawer-actions">
+            <Link to="/login" className="btn btn-ghost btn-sm">Sign in</Link>
+            <Link to="/dashboard" className="btn btn-primary btn-sm">Start free</Link>
           </div>
         </div>
       )}

@@ -2,91 +2,126 @@ import React from 'react';
 
 export const Deliverability: React.FC = () => {
   return (
-    <section id="deliverability">
+    <section className="deliver-section" id="deliverability">
       <div className="wrap">
-        <div className="deliver">
-          <div className="deliver-grid">
-            <div>
-              <h2 style={{ fontSize: 'clamp(1.6rem, 2.4vw, 2rem)', maxWidth: '11em', lineHeight: 1.18 }}>
-                Protect the sender reputation your campaigns depend on
-              </h2>
-              <p className="muted" style={{ marginTop: '16px', fontSize: '1.02rem', maxWidth: '34em' }}>
-                A new mailbox that sends at full volume on day one gets flagged. Reach ramps it up
-                gradually, and checks the DNS records that inbox providers actually trust.
-              </p>
-              <div className="checklist">
-                <div className="check-row">
-                  <span>SPF record</span>
-                  <span className="check-status" style={{ color: '#137A56' }}>
-                    <span className="d" style={{ background: '#137A56' }}></span>
-                    Pass
-                  </span>
-                </div>
-                <div className="check-row">
-                  <span>DKIM signature</span>
-                  <span className="check-status" style={{ color: '#137A56' }}>
-                    <span className="d" style={{ background: '#137A56' }}></span>
-                    Pass
-                  </span>
-                </div>
-                <div className="check-row">
-                  <span>DMARC policy</span>
-                  <span className="check-status" style={{ color: '#B4652F' }}>
-                    <span className="d" style={{ background: '#B4652F' }}></span>
-                    Needs attention
-                  </span>
-                </div>
-                <div className="check-row">
-                  <span>MX records</span>
-                  <span className="check-status" style={{ color: '#137A56' }}>
-                    <span className="d" style={{ background: '#137A56' }}></span>
-                    Pass
-                  </span>
-                </div>
+        <span className="eyebrow">
+          <span className="pip"></span>OPERATIONS & CREDIBILITY
+        </span>
+        <h2 className="deliver-headline">
+          Land in the inbox, not the spam folder.
+        </h2>
+        <p className="deliver-sub">
+          Reach runs domain-health and inbox-placement checks before every campaign.
+          Problems are flagged with fix-it guidance so your sender reputation stays clean.
+        </p>
+
+        <div className="deliver-grid">
+          {/* Domain Health Card */}
+          <div className="deliver-card">
+            <div className="deliver-card-header">
+              <svg viewBox="0 0 20 20" fill="none" width="20" height="20">
+                <path d="M10 1L2 5.5v4.5c0 4.5 3.2 8.7 8 9.8 4.8-1.1 8-5.3 8-9.8V5.5L10 1z" stroke="#16825D" strokeWidth="1.5" strokeLinejoin="round"/>
+                <path d="M7 10l2 2 4-4" stroke="#16825D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span>Domain health</span>
+            </div>
+            <div className="deliver-checks">
+              <div className="check-item pass">
+                <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+                  <circle cx="8" cy="8" r="7" stroke="#16825D" strokeWidth="1.3"/>
+                  <path d="M5 8.3l2 2 4-4.3" stroke="#16825D" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>SPF record configured</span>
+              </div>
+              <div className="check-item pass">
+                <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+                  <circle cx="8" cy="8" r="7" stroke="#16825D" strokeWidth="1.3"/>
+                  <path d="M5 8.3l2 2 4-4.3" stroke="#16825D" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>DKIM signing active</span>
+              </div>
+              <div className="check-item pass">
+                <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+                  <circle cx="8" cy="8" r="7" stroke="#16825D" strokeWidth="1.3"/>
+                  <path d="M5 8.3l2 2 4-4.3" stroke="#16825D" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>DMARC policy set</span>
+              </div>
+              <div className="check-item warn">
+                <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+                  <circle cx="8" cy="8" r="7" stroke="#B4652F" strokeWidth="1.3"/>
+                  <path d="M8 5v3M8 10.5v.5" stroke="#B4652F" strokeWidth="1.4" strokeLinecap="round"/>
+                </svg>
+                <span>Custom tracking domain — recommended</span>
               </div>
             </div>
+          </div>
 
-            <div>
-              <div className="ramp-card">
-                <div className="ramp-head">
-                  <span className="t">Mailbox warm-up</span>
-                  <span className="v">Day 12 of 30</span>
+          {/* Inbox Placement Card */}
+          <div className="deliver-card">
+            <div className="deliver-card-header">
+              <svg viewBox="0 0 20 20" fill="none" width="20" height="20">
+                <rect x="2" y="4" width="16" height="12" rx="2" stroke="#356DFF" strokeWidth="1.5"/>
+                <path d="M2 8l8 4 8-4" stroke="#356DFF" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+              <span>Inbox placement</span>
+            </div>
+            <div className="placement-grid">
+              <div className="placement-provider">
+                <span className="provider-name">Gmail</span>
+                <div className="placement-bar-track">
+                  <div className="placement-bar" style={{ width: '97%', background: '#16825D' }}></div>
                 </div>
-                <svg
-                  viewBox="0 0 380 160"
-                  width="100%"
-                  height="160"
-                  aria-label="Mailbox warm-up send volume ramp curve"
-                >
-                  <line x1="0" y1="130" x2="380" y2="130" stroke="#EEE7DF" strokeWidth="1" />
-                  <line x1="0" y1="90" x2="380" y2="90" stroke="#EEE7DF" strokeWidth="1" />
-                  <line x1="0" y1="50" x2="380" y2="50" stroke="#EEE7DF" strokeWidth="1" />
-                  <path
-                    d="M0,128 C 60,126 90,118 130,108 C 180,96 220,72 270,52 C 310,36 340,26 380,18"
-                    fill="none"
-                    stroke="#EA580C"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M0,128 C 60,126 90,118 130,108 C 180,96 220,72 270,52 C 310,36 340,26 380,18 L380,150 L0,150 Z"
-                    fill="#EA580C0f"
-                  />
-                  <circle cx="130" cy="108" r="4" fill="#C2410C" />
-                  <circle cx="270" cy="52" r="4" fill="#C2410C" />
-                </svg>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    fontSize: '0.76rem',
-                    color: 'var(--faint)',
-                    marginTop: '4px',
-                  }}
-                >
-                  <span>Day 1 · 20/day</span>
-                  <span>Day 30 · 400/day</span>
+                <span className="placement-pct">97%</span>
+              </div>
+              <div className="placement-provider">
+                <span className="provider-name">Outlook</span>
+                <div className="placement-bar-track">
+                  <div className="placement-bar" style={{ width: '95%', background: '#16825D' }}></div>
                 </div>
+                <span className="placement-pct">95%</span>
+              </div>
+              <div className="placement-provider">
+                <span className="provider-name">Yahoo</span>
+                <div className="placement-bar-track">
+                  <div className="placement-bar" style={{ width: '93%', background: '#16825D' }}></div>
+                </div>
+                <span className="placement-pct">93%</span>
+              </div>
+              <div className="placement-provider">
+                <span className="provider-name">Apple Mail</span>
+                <div className="placement-bar-track">
+                  <div className="placement-bar" style={{ width: '98%', background: '#16825D' }}></div>
+                </div>
+                <span className="placement-pct">98%</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Campaign Metrics Card */}
+          <div className="deliver-card">
+            <div className="deliver-card-header">
+              <svg viewBox="0 0 20 20" fill="none" width="20" height="20">
+                <path d="M3 17V8l4-5 4 3 4-4 2 2v13H3z" stroke="#F45B08" strokeWidth="1.5" strokeLinejoin="round"/>
+              </svg>
+              <span>Live metrics</span>
+            </div>
+            <div className="metrics-grid">
+              <div className="metric-item">
+                <span className="metric-val">98.4%</span>
+                <span className="metric-label">Delivery rate</span>
+              </div>
+              <div className="metric-item">
+                <span className="metric-val">52.1%</span>
+                <span className="metric-label">Open rate</span>
+              </div>
+              <div className="metric-item">
+                <span className="metric-val">12.8%</span>
+                <span className="metric-label">Reply rate</span>
+              </div>
+              <div className="metric-item">
+                <span className="metric-val">0.3%</span>
+                <span className="metric-label">Bounce rate</span>
               </div>
             </div>
           </div>

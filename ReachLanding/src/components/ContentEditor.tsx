@@ -6,54 +6,54 @@ export const ContentEditor: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('email');
 
   return (
-    <section>
+    <section id="product">
       <div className="wrap split">
         <div className="split-copy">
-          <h2>Draft content that fits each channel, without three separate workflows</h2>
+          <h2>Write once. Reach makes every channel feel native.</h2>
           <p>
-            Author subject lines, WhatsApp copy, and SMS text side by side on the same campaign.
-            Switch tabs, not tools — every channel stays in sync with the same recipient list and
+            Author email subject lines, WhatsApp messages, and SMS text side by side in the same
+            campaign workspace. Every channel stays in sync with the same recipient list and
             send schedule.
           </p>
           <ul className="split-list">
             <li>
               <svg viewBox="0 0 20 20" fill="none">
-                <circle cx="10" cy="10" r="9" stroke="#EA580C" strokeWidth="1.6" />
+                <circle cx="10" cy="10" r="9" stroke="#F45B08" strokeWidth="1.6" />
                 <path
                   d="M6.5 10.3l2.3 2.3 4.7-5"
-                  stroke="#EA580C"
+                  stroke="#F45B08"
                   strokeWidth="1.7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
-              Personalization tokens pull straight from your imported recipient data
+              Personalization from recipient data
             </li>
             <li>
               <svg viewBox="0 0 20 20" fill="none">
-                <circle cx="10" cy="10" r="9" stroke="#EA580C" strokeWidth="1.6" />
+                <circle cx="10" cy="10" r="9" stroke="#F45B08" strokeWidth="1.6" />
                 <path
                   d="M6.5 10.3l2.3 2.3 4.7-5"
-                  stroke="#EA580C"
+                  stroke="#F45B08"
                   strokeWidth="1.7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
-              Branded email templates keep formatting consistent without writing HTML
+              Shared templates for consistent campaigns
             </li>
             <li>
               <svg viewBox="0 0 20 20" fill="none">
-                <circle cx="10" cy="10" r="9" stroke="#EA580C" strokeWidth="1.6" />
+                <circle cx="10" cy="10" r="9" stroke="#F45B08" strokeWidth="1.6" />
                 <path
                   d="M6.5 10.3l2.3 2.3 4.7-5"
-                  stroke="#EA580C"
+                  stroke="#F45B08"
                   strokeWidth="1.7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
-              A shared template library means good copy gets reused, not rewritten
+              Channel-specific content without separate workflows
             </li>
           </ul>
         </div>
@@ -99,15 +99,7 @@ export const ContentEditor: React.FC = () => {
                   </div>
                   <div className="mock-field">
                     <div className="lb">Body</div>
-                    <div className="val">Hi {`{{first_name}}`}, noticed {`{{company}}`} just expanded into…</div>
-                  </div>
-                  <div className="mock-chip-row">
-                    <span className="mock-chip" style={{ background: '#EA580C14', color: '#C2410C' }}>
-                      AI-scored: 92/100
-                    </span>
-                    <span className="mock-chip" style={{ background: '#137A5614', color: '#137A56' }}>
-                      No spam triggers
-                    </span>
+                    <div className="val">Hi {`{{first_name}}`}, noticed {`{{company}}`} just expanded into new markets. We help teams like yours coordinate outreach across channels…</div>
                   </div>
                 </>
               )}
@@ -115,22 +107,14 @@ export const ContentEditor: React.FC = () => {
               {activeTab === 'whatsapp' && (
                 <>
                   <div className="mock-field">
-                    <div className="lb">Template Identifier</div>
+                    <div className="lb">Template</div>
                     <div className="val">reach_outbound_followup_v2 (Approved)</div>
                   </div>
                   <div className="mock-field">
-                    <div className="lb">Message Body</div>
+                    <div className="lb">Message</div>
                     <div className="val">
-                      Hey {`{{first_name}}`}, following up on our note regarding {`{{company}}`}&apos;s expansion. Would 10 mins this week work?
+                      Hey {`{{first_name}}`}, following up on our note about {`{{company}}`}&apos;s expansion. Would 10 mins this week work?
                     </div>
-                  </div>
-                  <div className="mock-chip-row">
-                    <span className="mock-chip" style={{ background: '#137A5614', color: '#137A56' }}>
-                      Meta Approved Template
-                    </span>
-                    <span className="mock-chip" style={{ background: '#2563EB14', color: '#2563EB' }}>
-                      24h Session Window
-                    </span>
                   </div>
                 </>
               )}
@@ -139,24 +123,48 @@ export const ContentEditor: React.FC = () => {
                 <>
                   <div className="mock-field">
                     <div className="lb">Sender ID</div>
-                    <div className="val">REACH-NOTIFY (10DLC A2P Registered)</div>
+                    <div className="val">REACH-NOTIFY (10DLC Registered)</div>
                   </div>
                   <div className="mock-field">
                     <div className="lb">SMS Body</div>
                     <div className="val">
-                      Hi {`{{first_name}}`}, quick ping from Reach for {`{{company}}`}. Tap rch.to/demo for info. Reply STOP to opt out.
+                      Hi {`{{first_name}}`}, quick ping from Reach re {`{{company}}`}. Tap rch.to/demo for info. Reply STOP to opt out.
                     </div>
-                  </div>
-                  <div className="mock-chip-row">
-                    <span className="mock-chip" style={{ background: '#2563EB14', color: '#2563EB' }}>
-                      128/160 chars (1 segment)
-                    </span>
-                    <span className="mock-chip" style={{ background: '#137A5614', color: '#137A56' }}>
-                      Opt-out keyword active
-                    </span>
                   </div>
                 </>
               )}
+
+              {/* AI Review Panel */}
+              <div className="ai-review-panel">
+                <div className="ai-review-title">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path d="M8 1l2 4.5L15 6l-3.5 3.5L12.5 15 8 12.5 3.5 15 4.5 9.5 1 6l5-0.5L8 1z" stroke="#F45B08" strokeWidth="1.2" strokeLinejoin="round"/>
+                  </svg>
+                  AI Review
+                </div>
+                <div className="ai-review-grid">
+                  <div className="ai-review-item">
+                    <span className="label">Quality</span>
+                    <span className="value brand">92/100</span>
+                  </div>
+                  <div className="ai-review-item">
+                    <span className="label">Spam risk</span>
+                    <span className="value good">Low</span>
+                  </div>
+                  <div className="ai-review-item">
+                    <span className="label">Personalization</span>
+                    <span className="value good">Ready</span>
+                  </div>
+                  <div className="ai-review-item">
+                    <span className="label">Tone</span>
+                    <span className="value">Professional</span>
+                  </div>
+                </div>
+                <div className="ai-review-actions">
+                  <button className="btn btn-outline" type="button">Improve copy</button>
+                  <button className="btn btn-ghost" type="button">Preview message</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

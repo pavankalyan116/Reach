@@ -6,139 +6,111 @@ export const Hero: React.FC = () => {
     <section className="hero">
       <div className="wrap hero-grid">
         <div className="hero-copy">
-          <span className="kicker">
-            <span className="pip"></span>Email, WhatsApp and SMS in one campaign
+          <span className="eyebrow">
+            <span className="pip"></span>MULTI-CHANNEL OUTREACH
           </span>
-          <h1 className="headline">Write the message once. Reach lands it everywhere.</h1>
+          <h1 className="headline">One campaign. Every channel. More replies.</h1>
           <p className="lede">
-            Reach is where campaigns get built, sequenced, and delivered — across every channel your
-            recipients actually use, with automatic follow-ups and AI that drafts, scores, and
-            replies alongside you.
+            Reach helps teams plan, send, and improve outreach across email, WhatsApp,
+            and SMS—without juggling separate tools or losing track of replies.
           </p>
           <div className="hero-ctas">
             <Link to="/dashboard" className="btn btn-primary">
               Start a campaign
             </Link>
-            <a href="#workflow" className="btn btn-ghost">
-              See how sequences work
+            <a href="#how-it-works" className="btn btn-ghost">
+              See how it works
             </a>
           </div>
-          <p className="hero-note">No credit card needed to try the free plan.</p>
+          <p className="hero-reassure">
+            No credit card required
+            <span className="dot-sep"></span>
+            Deliverability checks included
+          </p>
         </div>
 
-        <div className="hero-art">
-          <div className="art-card">
-            <div className="cap">One message, sent down three paths</div>
-            <svg
-              className="art-svg"
-              viewBox="0 0 460 300"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-label="Multi-channel campaign flow diagram"
-            >
-              {/* Paths */}
-              <path
-                id="pathEmail"
-                d="M40,60 C 180,60 260,150 400,150"
-                stroke="#EEE7DF"
-                strokeWidth="2"
-                fill="none"
-              />
-              <path
-                id="pathWa"
-                d="M40,150 C 180,150 260,150 400,150"
-                stroke="#EEE7DF"
-                strokeWidth="2"
-                fill="none"
-              />
-              <path
-                id="pathSms"
-                d="M40,240 C 180,240 260,150 400,150"
-                stroke="#EEE7DF"
-                strokeWidth="2"
-                fill="none"
-              />
+        <div className="hero-preview">
+          <div className="campaign-card">
+            {/* Campaign Header */}
+            <div className="campaign-header">
+              <div className="campaign-title">Q3 expansion outreach</div>
+              <div className="campaign-meta">
+                <span className="campaign-meta-item">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z" stroke="currentColor" strokeWidth="1.3"/>
+                    <path d="M8 4v4l2.5 1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+                  </svg>
+                  3 steps · Stops on reply
+                </span>
+                <span className="campaign-meta-item">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path d="M12 13.5v-1a3 3 0 00-3-3H7a3 3 0 00-3 3v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+                    <circle cx="8" cy="5" r="2.5" stroke="currentColor" strokeWidth="1.3"/>
+                  </svg>
+                  1,248 recipients
+                </span>
+              </div>
+            </div>
 
-              {/* Source node 1: Email */}
-              <g transform="translate(6,42)">
-                <rect width="68" height="36" rx="9" fill="#EA580C14" stroke="#EA580C33" />
-                <path
-                  d="M12 14 L34 26 L56 14"
-                  stroke="#C2410C"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <rect x="12" y="10" width="44" height="18" rx="3" fill="none" stroke="#C2410C" strokeWidth="1.6" />
-              </g>
+            {/* Channel Steps */}
+            <div className="channel-steps">
+              <div className="ch-step" style={{ background: '#F45B0810' }}>
+                <span className="ch-dot" style={{ background: '#F45B08' }}></span>
+                Email
+              </div>
+              <span className="ch-arrow">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+              <div className="ch-step" style={{ background: '#16825D10' }}>
+                <span className="ch-dot" style={{ background: '#16825D' }}></span>
+                WhatsApp
+              </div>
+              <span className="ch-arrow">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+              <div className="ch-step" style={{ background: '#356DFF10' }}>
+                <span className="ch-dot" style={{ background: '#356DFF' }}></span>
+                SMS
+              </div>
+            </div>
 
-              {/* Source node 2: WhatsApp */}
-              <g transform="translate(6,132)">
-                <rect width="68" height="36" rx="9" fill="#137A5614" stroke="#137A5633" />
-                <path
-                  d="M20 10 h28 a6 6 0 0 1 6 6 v10 a6 6 0 0 1 -6 6 h-16 l-8 7 v-7 h-4 a6 6 0 0 1 -6 -6 v-10 a6 6 0 0 1 6 -6 z"
-                  fill="none"
-                  stroke="#137A56"
-                  strokeWidth="1.6"
-                />
-              </g>
+            {/* Delivery Summary */}
+            <div className="campaign-summary">
+              <div className="summary-stat">
+                <span className="stat-val">98.4%</span>
+                <span className="stat-label">Delivered</span>
+              </div>
+              <div className="summary-stat">
+                <span className="stat-val">64</span>
+                <span className="stat-label">Replies</span>
+              </div>
+              <div className="summary-stat">
+                <span className="stat-val">1,248</span>
+                <span className="stat-label">Recipients</span>
+              </div>
+              <div className="summary-stat">
+                <span className="stat-val" style={{ color: '#16825D' }}>Active</span>
+                <span className="stat-label">Status</span>
+              </div>
+            </div>
+          </div>
 
-              {/* Source node 3: SMS */}
-              <g transform="translate(6,222)">
-                <rect width="68" height="36" rx="9" fill="#2563EB14" stroke="#2563EB33" />
-                <rect x="20" y="9" width="28" height="18" rx="3" fill="none" stroke="#2563EB" strokeWidth="1.6" />
-                <path
-                  d="M26 27 v4 l5 -4"
-                  fill="none"
-                  stroke="#2563EB"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </g>
-
-              {/* Recipient node */}
-              <g transform="translate(396,128)">
-                <circle cx="22" cy="22" r="22" fill="#1B1712" />
-                <circle cx="22" cy="16" r="6.5" fill="#FBF7F3" />
-                <path
-                  d="M10 34c2.5-7 9-9 12-9s9.5 2 12 9"
-                  stroke="#FBF7F3"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-              </g>
-
-              {/* Travelling animated dots */}
-              <circle
-                r="4.2"
-                fill="#C2410C"
-                className="dot-travel"
-                style={{
-                  offsetPath: "path('M40,60 C 180,60 260,150 400,150')",
-                  animationDelay: '0s',
-                }}
-              />
-              <circle
-                r="4.2"
-                fill="#137A56"
-                className="dot-travel"
-                style={{
-                  offsetPath: "path('M40,150 C 180,150 260,150 400,150')",
-                  animationDelay: '1.05s',
-                }}
-              />
-              <circle
-                r="4.2"
-                fill="#2563EB"
-                className="dot-travel"
-                style={{
-                  offsetPath: "path('M40,240 C 180,240 260,150 400,150')",
-                  animationDelay: '2.1s',
-                }}
-              />
-            </svg>
+          {/* Floating reply card */}
+          <div className="reply-card">
+            <div className="reply-avatar">
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M13 12.5v-.83a2.5 2.5 0 00-2.5-2.5h-5A2.5 2.5 0 003 11.67v.83" stroke="#16825D" strokeWidth="1.3" strokeLinecap="round"/>
+                <circle cx="8" cy="4.5" r="2.5" stroke="#16825D" strokeWidth="1.3"/>
+              </svg>
+            </div>
+            <div className="reply-text">
+              <div>Sarah replied</div>
+              <div className="reply-sub">"Sounds great, let's chat!"</div>
+            </div>
           </div>
         </div>
       </div>
