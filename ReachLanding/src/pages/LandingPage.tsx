@@ -1,39 +1,39 @@
 import React from 'react';
-import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
-import { ChannelStrip } from '../components/ChannelStrip';
-import { ContentEditor } from '../components/ContentEditor';
-import { SequenceBuilder } from '../components/SequenceBuilder';
-import { ReplyAgent } from '../components/ReplyAgent';
-import { Workflow } from '../components/Workflow';
-import { Deliverability } from '../components/Deliverability';
-import { TrustStrip } from '../components/TrustStrip';
+import { OrchestrateSection } from '../components/OrchestrateSection';
+import { UnderstandSection } from '../components/UnderstandSection';
+import { DeliverabilitySection } from '../components/DeliverabilitySection';
+import { AnalyticsSection } from '../components/AnalyticsSection';
 import { CTA } from '../components/CTA';
 import { Footer } from '../components/Footer';
 
 export const LandingPage: React.FC = () => {
   return (
-    <div className="landing-page">
-      <Navbar />
-      <main id="top">
-        {/* 1. Problem → Solution */}
+    <div className="landing-page-root">
+      <main>
+        {/* Navigation & Hero Section */}
         <Hero />
-        {/* 2. Channel proof */}
-        <ChannelStrip />
-        {/* 3. Product capabilities */}
-        <ContentEditor />
-        <SequenceBuilder />
-        <ReplyAgent />
-        {/* 4. How it works */}
-        <Workflow />
-        {/* 5. Operations & Credibility */}
-        <Deliverability />
-        {/* 6. Trust */}
-        <TrustStrip />
-        {/* 7. Final CTA */}
+
+        {/* 01 / Orchestrate */}
+        <OrchestrateSection />
+
+        {/* 02 / Understand */}
+        <UnderstandSection />
+
+        {/* 03 / Deliver */}
+        <DeliverabilitySection />
+
+        {/* Analytics / Features */}
+        <AnalyticsSection />
+
+        {/* Final CTA */}
         <CTA />
       </main>
+
+      {/* Footer */}
       <Footer />
     </div>
   );
 };
+
+export default LandingPage;

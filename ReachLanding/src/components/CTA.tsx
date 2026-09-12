@@ -1,26 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 export const CTA: React.FC = () => {
   return (
-    <section className="cta-section">
-      <div className="wrap">
-        <div className="cta-panel">
-          <h2 className="cta-headline">
-            Ready to reach more people?
-          </h2>
-          <p className="cta-sub">
-            Start your first multi-channel campaign in minutes.
-            No credit card, no commitment, no onboarding call.
-          </p>
-          <div className="cta-actions">
-            <Link to="/dashboard" className="btn btn-primary btn-lg">
-              Start a campaign — free
-            </Link>
+    <section className="final-cta-section" id="start">
+      <div className="section-wrap">
+        <div className="final-cta-layout">
+          {/* Left Column: Kicker & Headline */}
+          <div className="final-cta-left">
+            <span className="final-cta-kicker">Your next campaign</span>
+            <h2 className="final-cta-headline">
+              Start one conversation.<br />
+              Carry it everywhere.
+            </h2>
           </div>
-          <p className="cta-reassure">
-            Free forever for up to 500 recipients per month
-          </p>
+
+          {/* Right Column: Large Circular Button */}
+          <div className="final-cta-right">
+            <a
+              href="#top"
+              className="cta-circle-btn"
+              aria-label="Start a campaign"
+            >
+              <ArrowRight size={32} strokeWidth={2.4} />
+            </a>
+          </div>
         </div>
       </div>
     </section>
