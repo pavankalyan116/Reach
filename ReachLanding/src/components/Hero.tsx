@@ -1,15 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ArrowRight,
-  Play,
   Check,
 } from 'lucide-react';
 import { Navbar } from './Navbar';
-import { MailIcon, WhatsAppIcon, SmsIcon } from './ChannelIcons';
+
+type Channel = 'email' | 'whatsapp' | 'sms';
+
+const campaignChannels: Array<{
+  id: Channel;
+  label: string;
+  day: string;
+  description: string;
+  icon: React.ReactNode;
+  accentClass: string;
+}> = [
+  {
+    id: 'email',
+    label: 'Email',
+    day: 'Day 1',
+    description: 'Personalized introduc...',
+    icon: <img src="/icons/gmail.png" alt="Email" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    accentClass: 'channel-icon-email',
+  },
+  {
+    id: 'whatsapp',
+    label: 'WhatsApp',
+    day: 'Day 3',
+    description: 'Contextual follow-up',
+    icon: <img src="/icons/whatsapp.png" alt="WhatsApp" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    accentClass: 'channel-icon-whatsapp',
+  },
+  {
+    id: 'sms',
+    label: 'SMS',
+    day: 'Day 5',
+    description: 'Timely final nudge',
+    icon: <img src="/icons/sms.png" alt="SMS" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    accentClass: 'channel-icon-sms',
+  },
+];
 
 export const Hero: React.FC = () => {
+  const [activeChannel, setActiveChannel] = useState<Channel>('email');
+
   return (
-    <section className="hero-section hero-grid" id="top">
+    <section className="hero-section" id="top">
       {/* Navigation Header inside Hero */}
       <Navbar />
 
@@ -17,44 +53,50 @@ export const Hero: React.FC = () => {
         <div className="hero-layout">
           {/* Left Column: Copy & Actions */}
           <div className="hero-left animate-rise">
-
             {/* Main Headline */}
             <h1 className="hero-headline">
-              One campaign.<br />
-              Every channel.<br />
-              <span className="hero-headline-gradient">More replies.</span>
+              One<br />
+              campaign.<br />
+              Every<br />
+              channel.<br />
+              More replies.
             </h1>
 
             {/* Subheadline */}
             <p className="hero-subheadline">
-              Find prospects, personalize every touch, and coordinate Email, WhatsApp, and SMS from one intelligent workspace.
+              Find prospects, personalize every touch, and coordinate Email, WhatsApp and SMS — all from one campaign.
             </p>
 
-            {/* CTA Buttons */}
+            {/* Action Buttons */}
             <div className="hero-actions">
-              <a href="#start" className="cta-primary cta-large">
-                <span>Start a campaign</span>
-                <ArrowRight size={18} strokeWidth={2.4} />
+              <a href="#start" className="hero-btn-primary">
+                <span>Start free</span>
+                <ArrowRight size={16} strokeWidth={2.4} />
               </a>
-              <a href="#platform" className="cta-secondary cta-large">
-                <Play size={16} fill="currentColor" />
-                <span>See how it works</span>
+              <a href="#demo" className="hero-btn-secondary">
+                <span>Book a demo</span>
               </a>
             </div>
 
-            {/* Trust microcopy */}
+            {/* Reassurance Checks */}
             <div className="hero-trust-row">
               <div className="trust-item">
-                <Check size={16} className="trust-check" />
+                <span className="trust-check-badge">
+                  <Check size={11} strokeWidth={3.5} />
+                </span>
                 <span>No credit card required</span>
               </div>
               <div className="trust-item">
-                <Check size={16} className="trust-check" />
-                <span>Deliverability controls</span>
+                <span className="trust-check-badge">
+                  <Check size={11} strokeWidth={3.5} />
+                </span>
+                <span>Set up in minutes</span>
               </div>
               <div className="trust-item">
-                <Check size={16} className="trust-check" />
-                <span>Fast setup</span>
+                <span className="trust-check-badge">
+                  <Check size={11} strokeWidth={3.5} />
+                </span>
+                <span>Loved by growing teams</span>
               </div>
             </div>
           </div>
@@ -62,142 +104,130 @@ export const Hero: React.FC = () => {
           {/* Right Column: Campaign Console */}
           <div className="hero-right animate-rise-late">
             <div className="console-wrapper">
-              <div className="signal-halo" aria-hidden="true" />
-
-              {/* Glassmorphic Console Card */}
-              <div className="console-card shadow-console">
-                {/* Console Top Bar */}
+              <div className="console-card">
+                {/* Top window bar */}
                 <div className="console-top-bar">
                   <div className="console-dots">
-                    <span className="dot dot-brand" />
-                    <span className="dot dot-cyan" />
-                    <span className="dot dot-dim" />
-                    <span className="console-title">Q4 expansion campaign</span>
+                    <span className="dot dot-red" />
+                    <span className="dot dot-yellow" />
+                    <span className="dot dot-gray" />
+                  </div>
+                  <div className="console-status">
+                    <span className="status-dot" />
+                    <span className="status-text">LIVE</span>
                   </div>
                 </div>
 
-                {/* Split Interior Panels */}
-                <div className="console-panels">
-                  {/* Left panel: Sequence */}
-                  <div className="console-left-panel">
-                    <div className="panel-header">
-                      <div className="panel-kicker">Campaign</div>
-                      <div className="campaign-name-row">
-                        <span className="campaign-title">Enterprise leaders</span>
-                        <span className="badge-auto-followup">Auto follow-up</span>
-                      </div>
-                    </div>
+                {/* Campaign Header */}
+                <div className="campaign-product-header">
+                  <div className="campaign-product-text-block">
+                    <div className="campaign-product-name">Reach Campaign</div>
+                    <div className="campaign-product-sub">Product Introduction</div>
+                  </div>
+                </div>
 
+                {/* Campaign Body: Sequence + Preview */}
+                <div className="campaign-product-body">
+                  {/* Left Column: Sequence */}
+                  <div className="campaign-sequence-panel">
+                    <div className="panel-kicker">CAMPAIGN SEQUENCE</div>
                     <div className="channel-sequence">
-                      <div className="channel-row">
-                        <div className="channel-icon">
-                          <MailIcon size={20} />
+                      {campaignChannels.map((channel, index) => (
+                        <div key={channel.id} className="sequence-stack">
+                          <button
+                            type="button"
+                            className={`channel-row ${activeChannel === channel.id ? 'channel-row-active' : ''}`}
+                            onClick={() => setActiveChannel(channel.id)}
+                          >
+                            <div className={`channel-icon ${channel.accentClass}`}>
+                              {channel.icon}
+                            </div>
+                            <div className="channel-info">
+                              <div className="channel-name">{channel.label}</div>
+                              <div className="channel-desc">{channel.description}</div>
+                            </div>
+                            <div className="channel-day">{channel.day}</div>
+                          </button>
+                          {index < campaignChannels.length - 1 && (
+                            <div className="sequence-delay-row">
+                              <span className="delay-line" />
+                            </div>
+                          )}
                         </div>
-                        <div className="channel-info">
-                          <div className="channel-name">Email</div>
-                          <div className="channel-desc">Personalized introduction</div>
-                        </div>
-                        <div className="channel-day">DAY 1</div>
-                      </div>
-
-                      <div className="channel-row">
-                        <div className="channel-icon">
-                          <WhatsAppIcon size={20} />
-                        </div>
-                        <div className="channel-info">
-                          <div className="channel-name">WhatsApp</div>
-                          <div className="channel-desc">Contextual follow-up</div>
-                        </div>
-                        <div className="channel-day">DAY 3</div>
-                      </div>
-
-                      <div className="channel-row">
-                        <div className="channel-icon">
-                          <SmsIcon size={20} />
-                        </div>
-                        <div className="channel-info">
-                          <div className="channel-name">SMS</div>
-                          <div className="channel-desc">Timely final nudge</div>
-                        </div>
-                        <div className="channel-day">DAY 5</div>
-                      </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Right panel: Recent replies */}
-                  <div className="console-right-panel">
-                    <div className="replies-header">
-                      <span className="replies-title">Recent replies</span>
-                      <span className="replies-count">12 new</span>
-                    </div>
+                  {/* Right Column: Message Preview */}
+                  <div className="campaign-preview-panel">
+                    <div className="panel-kicker">MESSAGE PREVIEW</div>
 
-                    <div className="replies-list">
-                      <div className="reply-card">
-                        <div className="reply-card-top">
-                          <div className="avatar">SC</div>
-                          <div className="reply-sender-meta">
-                            <span className="sender-name">Sarah Chen</span>
-                            <span className="sender-time">Email · 2m ago</span>
+                    <div className="preview-stage">
+                      <div className={`panel-content-fade ${activeChannel === 'email' ? 'panel-visible' : 'panel-hidden'}`}>
+                        <div className="email-preview-card">
+                          <div className="meta-row">
+                            <span className="meta-label">From</span>
+                            <span className="meta-value">Alex from Reach</span>
+                          </div>
+                          <div className="meta-row">
+                            <span className="meta-label">To</span>
+                            <span className="meta-value">Sarah Johnson</span>
+                          </div>
+                          <div className="meta-row">
+                            <span className="meta-label">Subject</span>
+                            <span className="meta-value">A better way to start a conversation</span>
+                          </div>
+                          <div className="preview-divider" />
+                          <div className="email-body">
+                            <p>Hi Sarah,</p>
+                            <p>I noticed your team is expanding into new regions. We help teams like yours turn outbound into a repeatable pipeline without adding complexity.</p>
+                            <p>Would it make sense to compare notes next week?</p>
+                          </div>
+                          <div className="ai-personalized-tag">
+                            <span>✦</span> AI personalized
                           </div>
                         </div>
-                        <p className="reply-text">"Looks relevant. Can we talk next week?"</p>
-                        <div className="reply-badge-row">
-                          <span className="reply-badge badge-positive">
-                            <Check size={12} strokeWidth={2.6} />
-                            Interested
-                          </span>
+                      </div>
+
+                      <div className={`panel-content-fade ${activeChannel === 'whatsapp' ? 'panel-visible' : 'panel-hidden'}`}>
+                        <div className="email-preview-card">
+                          <div className="whatsapp-header">
+                            <span className="meta-value">Sarah Johnson</span>
+                            <span className="meta-label">9:42 AM</span>
+                          </div>
+                          <div className="preview-divider" />
+                          <div className="whatsapp-bubble">
+                            Hi Sarah — I noticed your team is expanding into new regions. We help teams like yours turn outbound into a repeatable pipeline without adding complexity. Would it make sense to compare notes?
+                          </div>
+                          <div className="whatsapp-status">✓✓ Read</div>
+                          <div className="ai-personalized-tag">
+                            <span>✦</span> Context adapted for WhatsApp
+                          </div>
                         </div>
                       </div>
 
-                      <div className="reply-card reply-card-alt">
-                        <div className="reply-card-top">
-                          <div className="avatar avatar-alt">DP</div>
-                          <div className="reply-sender-meta">
-                            <span className="sender-name">David Park</span>
-                            <span className="sender-time">WhatsApp · 8m ago</span>
+                      <div className={`panel-content-fade ${activeChannel === 'sms' ? 'panel-visible' : 'panel-hidden'}`}>
+                        <div className="email-preview-card">
+                          <div className="sms-topline">
+                            <span className="meta-value">Sarah Johnson</span>
+                            <span className="meta-label">Delivered</span>
                           </div>
-                        </div>
-                        <p className="reply-text">"Send me the details."</p>
-                        <div className="reply-badge-row">
-                          <span className="reply-badge badge-classified">
-                            <Check size={12} strokeWidth={2.6} />
-                            Replied
-                          </span>
+                          <div className="preview-divider" />
+                          <div className="sms-message">
+                            Hi Sarah — quick idea for your team's expansion. Want a 10-minute intro next week?
+                          </div>
+                          <div className="sms-timestamp">9:41 AM</div>
+                          <div className="ai-personalized-tag">
+                            <span>✦</span> Shortened and optimized for SMS
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Bottom metrics grid (4 cols) */}
-                <div className="console-metrics-grid">
-                  <div className="console-metric">
-                    <div className="metric-number">1,248</div>
-                    <div className="metric-label">Recipients</div>
-                  </div>
-                  <div className="console-metric">
-                    <div className="metric-number">98.4%</div>
-                    <div className="metric-label">Delivered</div>
-                  </div>
-                  <div className="console-metric">
-                    <div className="metric-number">64</div>
-                    <div className="metric-label">Replies</div>
-                  </div>
-                  <div className="console-metric">
-                    <div className="metric-number">12</div>
-                    <div className="metric-label">Meetings</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Strip */}
-        <div className="hero-bottom-strip">
-          <span className="bottom-strip-kicker">Built for modern revenue teams</span>
-          <div className="bottom-strip-line" />
-          <span className="bottom-strip-tagline">From first touch to real conversation.</span>
         </div>
       </div>
     </section>
