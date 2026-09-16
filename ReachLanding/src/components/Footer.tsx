@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
         <div className="footer-content-row">
           {/* Left: Brand mark */}
           <div className="footer-left">
-            <BrandMark textColor="var(--hero-foreground)" />
+            <BrandMark />
           </div>
 
           {/* Center: Tagline */}
