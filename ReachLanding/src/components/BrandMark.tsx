@@ -1,5 +1,5 @@
 import React from 'react';
-import ReachLogo from '../assets/Reach Logo White 1.png';
+import ReachLogo from '../assets/icons/Reach Logo White 1.png';
 
 interface BrandMarkProps {
   className?: string;
@@ -8,7 +8,7 @@ interface BrandMarkProps {
 export const BrandMark: React.FC<BrandMarkProps> = ({ className = '' }) => {
   return (
     <a href="#top" className={`brand-mark ${className}`} aria-label="Reach Home">
-      <img src={ReachLogo} alt="Reach Logo" className="brand-logo-image" style={{ height: '42px', width: 'auto' }} />
+      <img src={ReachLogo} alt="Reach Logo" className="brand-logo-image" />
     </a>
   );
 };
