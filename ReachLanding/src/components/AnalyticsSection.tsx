@@ -193,22 +193,22 @@ export const AnalyticsSection: React.FC = () => {
                 <div className="mock-stat-box">
                   <div className="stat-value">1,248</div>
                   <div className="stat-label">Sent</div>
-                  <div className="stat-icon bg-gray"><Send size={14} /></div>
+                  <div className="stat-icon"><img src="/icons/multi-channel.png" width={28} height={28} alt="Sent" /></div>
                 </div>
                 <div className="mock-stat-box">
                   <div className="stat-value text-green">982</div>
                   <div className="stat-label">Delivered</div>
-                  <div className="stat-icon bg-green"><Mail size={14} /></div>
+                  <div className="stat-icon"><img src="/icons/gmail.png" width={28} height={28} alt="Delivered" /></div>
                 </div>
                 <div className="mock-stat-box">
                   <div className="stat-value">64</div>
                   <div className="stat-label">Replies</div>
-                  <div className="stat-icon bg-blue"><Reply size={14} /></div>
+                  <div className="stat-icon"><img src="/icons/reply.png" width={28} height={28} alt="Replies" /></div>
                 </div>
                 <div className="mock-stat-box">
                   <div className="stat-value text-orange">12</div>
                   <div className="stat-label">Meetings</div>
-                  <div className="stat-icon bg-orange"><Calendar size={14} /></div>
+                  <div className="stat-icon"><img src="/icons/Scheduled.png" width={28} height={28} alt="Meetings" /></div>
                 </div>
               </div>
 

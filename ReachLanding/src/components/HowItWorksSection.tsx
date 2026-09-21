@@ -152,7 +152,7 @@ export const HowItWorksSection: React.FC = () => {
               
               <div className={`node-micro-status ${activeStage === 1 ? 'show' : ''}`}>
                 <div className="data-sources-pill">
-                  <span className="source-pill"><img src="/icons/gmail.png" alt="" style={{display: 'none'}}/> API</span>
+                  <span className="source-pill">API</span>
                   <span className="source-pill">CSV</span>
                   <span className="source-pill">CRM</span>
                 </div>
@@ -243,6 +243,8 @@ export const HowItWorksSection: React.FC = () => {
               <div className={`story-step ${activeStage >= 1 || dotProgress > 0 ? 'active' : ''}`}>
                 {stage1Completed ? (
                   <Check size={18} className="text-orange" strokeWidth={3} />
+                ) : activeStage === 1 ? (
+                  <span className="story-dot filled" />
                 ) : (
                   <span className="story-dot outline" />
                 )}
@@ -265,7 +267,7 @@ export const HowItWorksSection: React.FC = () => {
               </div>
               
               <div className="story-line">
-                <div className="story-line-fill" style={{ width: dotProgress > 85 ? '100%' : '0%' }} />
+                <div className="story-line-fill" style={{ width: dotProgress > 50 ? '100%' : '0%' }} />
               </div>
               
               <div className={`story-step ${activeStage >= 3 || dotProgress > 85 ? 'active' : ''}`}>

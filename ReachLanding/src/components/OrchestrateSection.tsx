@@ -97,7 +97,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step active-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num orange-fill">1</div>
-                          <div className="orch-step-icon"><MailIcon size={22} /></div>
+                          <div className="orch-step-icon"><MailIcon size={32} /></div>
                           <div className="orch-line orange-line"></div>
                         </div>
                         <div className="orch-step-content">
@@ -113,7 +113,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num">2</div>
-                          <div className="orch-step-icon"><WhatsAppIcon size={22} /></div>
+                          <div className="orch-step-icon"><WhatsAppIcon size={32} /></div>
                           <div className="orch-line orange-line"></div>
                         </div>
                         <div className="orch-step-content">
@@ -129,7 +129,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num">3</div>
-                          <div className="orch-step-icon"><SmsIcon size={22} /></div>
+                          <div className="orch-step-icon"><SmsIcon size={32} /></div>
                         </div>
                         <div className="orch-step-content">
                           <div className="orch-step-title">Step 3 &gt; SMS</div>
@@ -170,7 +170,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num orange-bg-light">1</div>
-                          <div className="orch-step-icon"><MailIcon size={22} /></div>
+                          <div className="orch-step-icon"><MailIcon size={32} /></div>
                           <div className="orch-line orange-dashed-line"></div>
                         </div>
                         <div className="orch-step-content">
@@ -185,7 +185,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num">2</div>
-                          <div className="orch-step-icon"><WhatsAppIcon size={22} /></div>
+                          <div className="orch-step-icon"><WhatsAppIcon size={32} /></div>
                           <div className="orch-line orange-dashed-line"></div>
                         </div>
                         <div className="orch-step-content">
@@ -200,7 +200,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num">3</div>
-                          <div className="orch-step-icon"><SmsIcon size={22} /></div>
+                          <div className="orch-step-icon"><SmsIcon size={32} /></div>
                         </div>
                         <div className="orch-step-content">
                           <div className="orch-step-title">Step 3 &gt; SMS</div>
@@ -229,7 +229,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step active-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num green-fill"><CornerUpLeft size={14}/></div>
-                          <div className="orch-step-icon"><MailIcon size={22} /></div>
+                          <div className="orch-step-icon"><MailIcon size={32} /></div>
                           <div className="orch-line gray-dashed-line"></div>
                         </div>
                         <div className="orch-step-content">
@@ -245,7 +245,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step disabled-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num">2</div>
-                          <div className="orch-step-icon"><WhatsAppIcon size={22} /></div>
+                          <div className="orch-step-icon"><WhatsAppIcon size={32} /></div>
                         </div>
                         <div className="orch-step-content">
                           <div className="orch-step-title">Step 2 &gt; WhatsApp</div>
@@ -275,7 +275,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num">1</div>
-                          <div className="orch-step-icon"><MailIcon size={22} /></div>
+                          <div className="orch-step-icon"><MailIcon size={32} /></div>
                           <div className="orch-line blue-line"></div>
                         </div>
                         <div className="orch-step-content">
@@ -287,7 +287,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num">2</div>
-                          <div className="orch-step-icon"><WhatsAppIcon size={22} /></div>
+                          <div className="orch-step-icon"><WhatsAppIcon size={32} /></div>
                           <div className="orch-line blue-line"></div>
                         </div>
                         <div className="orch-step-content">
@@ -299,7 +299,7 @@ export const OrchestrateSection: React.FC = () => {
                       <div className="orch-step">
                         <div className="orch-step-left">
                           <div className="orch-step-num">3</div>
-                          <div className="orch-step-icon"><SmsIcon size={22} /></div>
+                          <div className="orch-step-icon"><SmsIcon size={32} /></div>
                         </div>
                         <div className="orch-step-content">
                           <div className="orch-step-title">Step 3 &gt; SMS</div>

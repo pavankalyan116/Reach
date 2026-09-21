@@ -1316,15 +1316,9 @@ svg {
 .green-fill { background: #16a34a; color: #ffffff; }
 
 .orch-step-icon {
-  width: 44px;
-  height: 32px;
-  border-radius: 8px;
-  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   position: relative;
   z-index: 3;
 }
@@ -1388,10 +1382,51 @@ svg {
   width: 2px;
   z-index: 1;
 }
-.orange-line { background: #ff5f3f; }
-.orange-dashed-line { border-left: 2px dashed #ff5f3f; }
-.gray-dashed-line { border-left: 2px dashed #d1d5db; }
-.blue-line { background: #3b82f6; }
+.orange-line {
+  background: transparent;
+  background-image: linear-gradient(to bottom, #ff5f3f 50%, transparent 50%);
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  animation: move-line-orange 1s linear infinite;
+}
+
+@keyframes move-line-orange {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 12px; }
+}
+.orange-dashed-line {
+  background: transparent;
+  background-image: linear-gradient(to bottom, #ff5f3f 50%, transparent 50%);
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  animation: move-line-orange 1s linear infinite;
+  border-left: none;
+}
+.gray-dashed-line {
+  background: transparent;
+  background-image: linear-gradient(to bottom, #d1d5db 50%, transparent 50%);
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  animation: move-line-gray 1s linear infinite;
+  border-left: none;
+}
+
+@keyframes move-line-gray {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 12px; }
+}
+.blue-line {
+  background: transparent;
+  background-image: linear-gradient(to bottom, #3b82f6 50%, transparent 50%);
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  animation: move-line-blue 1s linear infinite;
+}
+
+@keyframes move-line-blue {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 12px; }
+}
 
 .active-step {
   border-color: #ffedd5;
@@ -1533,6 +1568,8 @@ svg {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 10;
 }
 
 .unified-panel-header {
@@ -1592,7 +1629,8 @@ svg {
   border: 1px solid #eaeaea;
   border-radius: 12px;
   background: #fff;
-  transition: box-shadow 0.2s ease;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .unified-row:first-child {
@@ -1601,7 +1639,9 @@ svg {
 }
 
 .unified-row:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #ffd9ce;
+  background: #fffafa;
 }
 
 .avatar {
@@ -2946,12 +2986,13 @@ svg {
 /* Connecting Line and Dot */
 .hiw-continuous-line-wrapper {
   position: absolute;
-  top: 110px;
-  /* Center with the node icons roughly */
-  left: 150px;
-  right: 150px;
-  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  height: 24px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .hiw-continuous-line {
@@ -2960,31 +3001,44 @@ svg {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--border);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>');
+  background-repeat: repeat-x;
+  background-size: 24px 24px;
+  background-position: left center;
+  animation: move-arrows 1s linear infinite;
 }
 
 .hiw-continuous-line-fill {
   height: 100%;
-  background-color: var(--brand);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ea580c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>');
+  background-repeat: repeat-x;
+  background-size: 24px 24px;
+  background-position: left center;
+  animation: move-arrows 1s linear infinite;
   transition: width 0.4s linear;
+}
+
+@keyframes move-arrows {
+  from { background-position: 0 center; }
+  to { background-position: 24px center; }
 }
 
 .hiw-traveling-dot {
   position: absolute;
   top: 50%;
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: var(--brand);
   transform: translate(-50%, -50%);
   transition: left 0.4s linear, transform 0.3s ease-out, box-shadow 0.3s ease-out, opacity 0.3s ease;
   z-index: 10;
-  box-shadow: 0 0 5px rgba(234, 88, 12, 0.4);
+  box-shadow: 0 0 8px rgba(234, 88, 12, 0.6);
 }
 
 .hiw-traveling-dot.dot-active {
   transform: translate(-50%, -50%) scale(1.6);
-  box-shadow: 0 0 12px rgba(234, 88, 12, 0.6);
+  box-shadow: 0 0 16px rgba(234, 88, 12, 0.8);
 }
 
 .hiw-traveling-dot.dot-hidden {

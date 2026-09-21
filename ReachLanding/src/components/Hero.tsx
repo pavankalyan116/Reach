@@ -175,13 +175,13 @@ export const Hero: React.FC = () => {
                           </div>
                           <div className="meta-row">
                             <span className="meta-label">Subject</span>
-                            <span className="meta-value">A better way to start a conversation</span>
+                            <span className="meta-value">Quick intro</span>
                           </div>
                           <div className="preview-divider" />
                           <div className="email-body">
                             <p>Hi Sarah,</p>
-                            <p>I noticed your team is expanding into new regions. We help teams like yours turn outbound into a repeatable pipeline without adding complexity.</p>
-                            <p>Would it make sense to compare notes next week?</p>
+                            <p>I’d love to share how Reach can help your team simplify outbound.</p>
+                            <p>Open to a quick chat?</p>
                           </div>
                           <div className="ai-personalized-tag">
                             <span>✦</span> AI personalized
