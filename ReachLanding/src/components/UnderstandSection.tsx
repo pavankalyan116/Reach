@@ -45,7 +45,7 @@ export const UnderstandSection: React.FC = () => {
                       <div className="unified-sender-meta">
                         <span className="unified-sender-name">Sarah Chen</span>
                         <span className="unified-channel-via">
-                          <img src="/icons/gmail.png" alt="Email" className="channel-img-icon" />
+                          <img src={`${import.meta.env.BASE_URL}icons/gmail.png`} alt="Email" className="channel-img-icon" />
                           <span>Email</span>
                         </span>
                       </div>
@@ -68,7 +68,7 @@ export const UnderstandSection: React.FC = () => {
                       <div className="unified-sender-meta">
                         <span className="unified-sender-name">David Park</span>
                         <span className="unified-channel-via">
-                          <img src="/icons/whatsapp.png" alt="WhatsApp" className="channel-img-icon" />
+                          <img src={`${import.meta.env.BASE_URL}icons/whatsapp.png`} alt="WhatsApp" className="channel-img-icon" />
                           <span>WhatsApp</span>
                         </span>
                       </div>
@@ -91,7 +91,7 @@ export const UnderstandSection: React.FC = () => {
                       <div className="unified-sender-meta">
                         <span className="unified-sender-name">Maya Okafor</span>
                         <span className="unified-channel-via">
-                          <img src="/icons/sms.png" alt="SMS" className="channel-img-icon" />
+                          <img src={`${import.meta.env.BASE_URL}icons/sms.png`} alt="SMS" className="channel-img-icon" />
                           <span>SMS</span>
                         </span>
                       </div>

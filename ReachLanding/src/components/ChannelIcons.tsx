@@ -9,7 +9,7 @@ interface IconProps {
 export const MailIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => {
   return (
     <img
-      src="/icons/gmail.png"
+      src={`${import.meta.env.BASE_URL}icons/gmail.png`}
       alt="Email"
       width={size}
       height={size}
@@ -22,7 +22,7 @@ export const MailIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => 
 export const WhatsAppIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => {
   return (
     <img
-      src="/icons/whatsapp.png"
+      src={`${import.meta.env.BASE_URL}icons/whatsapp.png`}
       alt="WhatsApp"
       width={size}
       height={size}
@@ -35,7 +35,7 @@ export const WhatsAppIcon: React.FC<IconProps> = ({ size = 20, className = '' })
 export const SmsIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => {
   return (
     <img
-      src="/icons/sms.png"
+      src={`${import.meta.env.BASE_URL}icons/sms.png`}
       alt="SMS"
       width={size}
       height={size}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ArrowRight,
   Check,
@@ -20,7 +20,7 @@ const campaignChannels: Array<{
     label: 'Email',
     day: 'Day 1',
     description: 'Personalized introduc...',
-    icon: <img src="/icons/gmail.png" alt="Email" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    icon: <img src={`${import.meta.env.BASE_URL}icons/gmail.png`} alt="Email" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
     accentClass: 'channel-icon-email',
   },
   {
@@ -28,7 +28,7 @@ const campaignChannels: Array<{
     label: 'WhatsApp',
     day: 'Day 3',
     description: 'Contextual follow-up',
-    icon: <img src="/icons/whatsapp.png" alt="WhatsApp" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    icon: <img src={`${import.meta.env.BASE_URL}icons/whatsapp.png`} alt="WhatsApp" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
     accentClass: 'channel-icon-whatsapp',
   },
   {
@@ -36,13 +36,25 @@ const campaignChannels: Array<{
     label: 'SMS',
     day: 'Day 5',
     description: 'Timely final nudge',
-    icon: <img src="/icons/sms.png" alt="SMS" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    icon: <img src={`${import.meta.env.BASE_URL}icons/sms.png`} alt="SMS" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
     accentClass: 'channel-icon-sms',
   },
 ];
 
 export const Hero: React.FC = () => {
   const [activeChannel, setActiveChannel] = useState<Channel>('email');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveChannel((prev) => {
+        if (prev === 'email') return 'whatsapp';
+        if (prev === 'whatsapp') return 'sms';
+        return 'email';
+      });
+    }, 3500); // Cycle every 3.5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="hero-section" id="top">

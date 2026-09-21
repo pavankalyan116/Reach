@@ -120,14 +120,14 @@ export const HowItWorksSection: React.FC = () => {
             <div className="hiw-continuous-line">
               <div 
                 className="hiw-continuous-line-fill" 
-                style={{ width: prefersReducedMotion ? '15%' : `${Math.max(0, dotProgress)}%` }} 
+                style={{ '--progress': prefersReducedMotion ? '15%' : `${Math.max(0, dotProgress)}%` } as React.CSSProperties} 
               />
             </div>
             
             {!prefersReducedMotion && (
               <div 
                 className={`hiw-traveling-dot ${activeStage === -1 ? 'dot-hidden' : ''} ${activeStage > 0 && activeStage < 4 ? 'dot-active' : ''}`}
-                style={{ left: `${dotProgress}%` }}
+                style={{ '--progress': `${dotProgress}%` } as React.CSSProperties}
               />
             )}
           </div>
@@ -220,15 +220,15 @@ export const HowItWorksSection: React.FC = () => {
               <div className={`node-micro-status ${activeStage === 3 ? 'show' : ''}`}>
                 <div className="delivery-channels-list">
                   <div className="delivery-channel-row">
-                    <span className="ch-name"><img src="/icons/gmail.png" alt="" className="ch-tiny-icon"/> Email</span>
+                    <span className="ch-name"><img src={`${import.meta.env.BASE_URL}icons/gmail.png`} alt="" className="ch-tiny-icon"/> Email</span>
                     <span className={`ch-status ${subStep >= 0 ? 'ch-done' : ''}`}>{subStep >= 0 ? 'Sent' : 'Pending'}</span>
                   </div>
                   <div className="delivery-channel-row">
-                    <span className="ch-name"><img src="/icons/whatsapp.png" alt="" className="ch-tiny-icon"/> WhatsApp</span>
+                    <span className="ch-name"><img src={`${import.meta.env.BASE_URL}icons/whatsapp.png`} alt="" className="ch-tiny-icon"/> WhatsApp</span>
                     <span className={`ch-status ${subStep >= 1 ? 'ch-done' : ''}`}>{subStep >= 1 ? 'Sent' : 'Pending'}</span>
                   </div>
                   <div className="delivery-channel-row">
-                    <span className="ch-name"><img src="/icons/sms.png" alt="" className="ch-tiny-icon"/> SMS</span>
+                    <span className="ch-name"><img src={`${import.meta.env.BASE_URL}icons/sms.png`} alt="" className="ch-tiny-icon"/> SMS</span>
                     <span className={`ch-status ${subStep >= 2 ? 'ch-done' : ''}`}>{subStep >= 2 ? 'Sent' : 'Pending'}</span>
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export const HowItWorksSection: React.FC = () => {
               </div>
               
               <div className="story-line">
-                <div className="story-line-fill" style={{ width: dotProgress > 15 ? '100%' : '0%' }} />
+                <div className="story-line-fill" style={{ '--progress': dotProgress > 15 ? '100%' : '0%' } as React.CSSProperties} />
               </div>
               
               <div className={`story-step ${activeStage >= 2 || dotProgress > 50 ? 'active' : ''}`}>
@@ -267,7 +267,7 @@ export const HowItWorksSection: React.FC = () => {
               </div>
               
               <div className="story-line">
-                <div className="story-line-fill" style={{ width: dotProgress > 50 ? '100%' : '0%' }} />
+                <div className="story-line-fill" style={{ '--progress': dotProgress > 50 ? '100%' : '0%' } as React.CSSProperties} />
               </div>
               
               <div className={`story-step ${activeStage >= 3 || dotProgress > 85 ? 'active' : ''}`}>

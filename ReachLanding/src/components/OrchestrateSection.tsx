@@ -63,28 +63,28 @@ export const OrchestrateSection: React.FC = () => {
                   className={`orch-tab ${activeTab === 'personalized' ? 'active' : ''}`}
                   onClick={() => setActiveTab('personalized')}
                 >
-                  <img src="/icons/Personalized.png" alt="Personalized" width={24} height={24} className="tab-icon" />
+                  <img src={`${import.meta.env.BASE_URL}icons/Personalized.png`} alt="Personalized" width={24} height={24} className="tab-icon" />
                   <h4>Personalized</h4>
                 </button>
                 <button
                   className={`orch-tab ${activeTab === 'scheduled' ? 'active' : ''}`}
                   onClick={() => setActiveTab('scheduled')}
                 >
-                  <img src="/icons/Scheduled.png" alt="Scheduled" width={24} height={24} className="tab-icon" />
+                  <img src={`${import.meta.env.BASE_URL}icons/Scheduled.png`} alt="Scheduled" width={24} height={24} className="tab-icon" />
                   <h4>Scheduled</h4>
                 </button>
                 <button
                   className={`orch-tab ${activeTab === 'stops' ? 'active' : ''}`}
                   onClick={() => setActiveTab('stops')}
                 >
-                  <img src="/icons/reply.png" alt="Stops on reply" width={24} height={24} className="tab-icon" />
+                  <img src={`${import.meta.env.BASE_URL}icons/reply.png`} alt="Stops on reply" width={24} height={24} className="tab-icon" />
                   <h4>Stops on reply</h4>
                 </button>
                 <button
                   className={`orch-tab ${activeTab === 'multi' ? 'active' : ''}`}
                   onClick={() => setActiveTab('multi')}
                 >
-                  <img src="/icons/multi-channel.png" alt="Multi-channel" width={24} height={24} className="tab-icon" />
+                  <img src={`${import.meta.env.BASE_URL}icons/multi-channel.png`} alt="Multi-channel" width={24} height={24} className="tab-icon" />
                   <h4>Multi-channel</h4>
                 </button>
               </div>
