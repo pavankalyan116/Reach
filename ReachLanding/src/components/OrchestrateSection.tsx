@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import emailIcon from '../assets/icons/gmail.png';
+import whatsappIcon from '../assets/icons/whatsapp.png';
+import smsIcon from '../assets/icons/sms.png';
+import multichannelIcon from '../assets/icons/multi-channel.png';
+import replyIcon from '../assets/icons/reply.png';
+import scheduledIcon from '../assets/icons/Scheduled.png';
+import personalizedIcon from '../assets/icons/Personalized.png';
 import { ArrowRight, MoreVertical, CornerUpLeft, Clock } from 'lucide-react';
 import { MailIcon, WhatsAppIcon, SmsIcon } from './ChannelIcons';
 
@@ -63,28 +70,28 @@ export const OrchestrateSection: React.FC = () => {
                   className={`orch-tab ${activeTab === 'personalized' ? 'active' : ''}`}
                   onClick={() => setActiveTab('personalized')}
                 >
-                  <img src={`${import.meta.env.BASE_URL}icons/Personalized.png`} alt="Personalized" width={24} height={24} className="tab-icon" />
+                  <img src={personalizedIcon} alt="Personalized" width={24} height={24} className="tab-icon" />
                   <h4>Personalized</h4>
                 </button>
                 <button
                   className={`orch-tab ${activeTab === 'scheduled' ? 'active' : ''}`}
                   onClick={() => setActiveTab('scheduled')}
                 >
-                  <img src={`${import.meta.env.BASE_URL}icons/Scheduled.png`} alt="Scheduled" width={24} height={24} className="tab-icon" />
+                  <img src={scheduledIcon} alt="Scheduled" width={24} height={24} className="tab-icon" />
                   <h4>Scheduled</h4>
                 </button>
                 <button
                   className={`orch-tab ${activeTab === 'stops' ? 'active' : ''}`}
                   onClick={() => setActiveTab('stops')}
                 >
-                  <img src={`${import.meta.env.BASE_URL}icons/reply.png`} alt="Stops on reply" width={24} height={24} className="tab-icon" />
+                  <img src={replyIcon} alt="Stops on reply" width={24} height={24} className="tab-icon" />
                   <h4>Stops on reply</h4>
                 </button>
                 <button
                   className={`orch-tab ${activeTab === 'multi' ? 'active' : ''}`}
                   onClick={() => setActiveTab('multi')}
                 >
-                  <img src={`${import.meta.env.BASE_URL}icons/multi-channel.png`} alt="Multi-channel" width={24} height={24} className="tab-icon" />
+                  <img src={multichannelIcon} alt="Multi-channel" width={24} height={24} className="tab-icon" />
                   <h4>Multi-channel</h4>
                 </button>
               </div>
@@ -317,3 +324,4 @@ export const OrchestrateSection: React.FC = () => {
     </section>
   );
 };
+

@@ -4,6 +4,9 @@ import {
   Check,
 } from 'lucide-react';
 import { Navbar } from './Navbar';
+import emailIcon from '../assets/icons/gmail.png';
+import whatsappIcon from '../assets/icons/whatsapp.png';
+import smsIcon from '../assets/icons/sms.png';
 
 type Channel = 'email' | 'whatsapp' | 'sms';
 
@@ -20,7 +23,7 @@ const campaignChannels: Array<{
     label: 'Email',
     day: 'Day 1',
     description: 'Personalized introduc...',
-    icon: <img src={`${import.meta.env.BASE_URL}icons/gmail.png`} alt="Email" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    icon: <img src={emailIcon} alt="Email" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
     accentClass: 'channel-icon-email',
   },
   {
@@ -28,7 +31,7 @@ const campaignChannels: Array<{
     label: 'WhatsApp',
     day: 'Day 3',
     description: 'Contextual follow-up',
-    icon: <img src={`${import.meta.env.BASE_URL}icons/whatsapp.png`} alt="WhatsApp" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    icon: <img src={whatsappIcon} alt="WhatsApp" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
     accentClass: 'channel-icon-whatsapp',
   },
   {
@@ -36,7 +39,7 @@ const campaignChannels: Array<{
     label: 'SMS',
     day: 'Day 5',
     description: 'Timely final nudge',
-    icon: <img src={`${import.meta.env.BASE_URL}icons/sms.png`} alt="SMS" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
+    icon: <img src={smsIcon} alt="SMS" style={{ width: 18, height: 18, objectFit: 'contain' }} />,
     accentClass: 'channel-icon-sms',
   },
 ];

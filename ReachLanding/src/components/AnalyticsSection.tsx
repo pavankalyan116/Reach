@@ -1,4 +1,11 @@
 import React from 'react';
+import emailIcon from '../assets/icons/gmail.png';
+import whatsappIcon from '../assets/icons/whatsapp.png';
+import smsIcon from '../assets/icons/sms.png';
+import multichannelIcon from '../assets/icons/multi-channel.png';
+import replyIcon from '../assets/icons/reply.png';
+import scheduledIcon from '../assets/icons/Scheduled.png';
+import personalizedIcon from '../assets/icons/Personalized.png';
 import { 
   Users, 
   BarChart3, 
@@ -190,22 +197,22 @@ export const AnalyticsSection: React.FC = () => {
                 <div className="mock-stat-box">
                   <div className="stat-value">1,248</div>
                   <div className="stat-label">Sent</div>
-                  <div className="stat-icon"><img src={`${import.meta.env.BASE_URL}icons/multi-channel.png`} width={28} height={28} alt="Sent" /></div>
+                  <div className="stat-icon"><img src={multichannelIcon} width={28} height={28} alt="Sent" /></div>
                 </div>
                 <div className="mock-stat-box">
                   <div className="stat-value text-green">982</div>
                   <div className="stat-label">Delivered</div>
-                  <div className="stat-icon"><img src={`${import.meta.env.BASE_URL}icons/gmail.png`} width={28} height={28} alt="Delivered" /></div>
+                  <div className="stat-icon"><img src={emailIcon} width={28} height={28} alt="Delivered" /></div>
                 </div>
                 <div className="mock-stat-box">
                   <div className="stat-value">64</div>
                   <div className="stat-label">Replies</div>
-                  <div className="stat-icon"><img src={`${import.meta.env.BASE_URL}icons/reply.png`} width={28} height={28} alt="Replies" /></div>
+                  <div className="stat-icon"><img src={replyIcon} width={28} height={28} alt="Replies" /></div>
                 </div>
                 <div className="mock-stat-box">
                   <div className="stat-value text-orange">12</div>
                   <div className="stat-label">Meetings</div>
-                  <div className="stat-icon"><img src={`${import.meta.env.BASE_URL}icons/Scheduled.png`} width={28} height={28} alt="Meetings" /></div>
+                  <div className="stat-icon"><img src={scheduledIcon} width={28} height={28} alt="Meetings" /></div>
                 </div>
               </div>
 
@@ -262,3 +269,4 @@ export const AnalyticsSection: React.FC = () => {
     </section>
   );
 };
+

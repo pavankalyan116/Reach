@@ -1,4 +1,11 @@
 import React from 'react';
+import emailIcon from '../assets/icons/gmail.png';
+import whatsappIcon from '../assets/icons/whatsapp.png';
+import smsIcon from '../assets/icons/sms.png';
+import multichannelIcon from '../assets/icons/multi-channel.png';
+import replyIcon from '../assets/icons/reply.png';
+import scheduledIcon from '../assets/icons/Scheduled.png';
+import personalizedIcon from '../assets/icons/Personalized.png';
 
 interface IconProps {
   size?: number;
@@ -9,7 +16,7 @@ interface IconProps {
 export const MailIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => {
   return (
     <img
-      src={`${import.meta.env.BASE_URL}icons/gmail.png`}
+      src={emailIcon}
       alt="Email"
       width={size}
       height={size}
@@ -22,7 +29,7 @@ export const MailIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => 
 export const WhatsAppIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => {
   return (
     <img
-      src={`${import.meta.env.BASE_URL}icons/whatsapp.png`}
+      src={whatsappIcon}
       alt="WhatsApp"
       width={size}
       height={size}
@@ -35,7 +42,7 @@ export const WhatsAppIcon: React.FC<IconProps> = ({ size = 20, className = '' })
 export const SmsIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => {
   return (
     <img
-      src={`${import.meta.env.BASE_URL}icons/sms.png`}
+      src={smsIcon}
       alt="SMS"
       width={size}
       height={size}
@@ -44,3 +51,4 @@ export const SmsIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => {
     />
   );
 };
+

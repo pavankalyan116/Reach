@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import emailIcon from '../assets/icons/gmail.png';
+import whatsappIcon from '../assets/icons/whatsapp.png';
+import smsIcon from '../assets/icons/sms.png';
+import multichannelIcon from '../assets/icons/multi-channel.png';
+import replyIcon from '../assets/icons/reply.png';
+import scheduledIcon from '../assets/icons/Scheduled.png';
+import personalizedIcon from '../assets/icons/Personalized.png';
 import { Database, Brain, Send, Check } from 'lucide-react';
 
 export const HowItWorksSection: React.FC = () => {
@@ -220,15 +227,15 @@ export const HowItWorksSection: React.FC = () => {
               <div className={`node-micro-status ${activeStage === 3 ? 'show' : ''}`}>
                 <div className="delivery-channels-list">
                   <div className="delivery-channel-row">
-                    <span className="ch-name"><img src={`${import.meta.env.BASE_URL}icons/gmail.png`} alt="" className="ch-tiny-icon"/> Email</span>
+                    <span className="ch-name"><img src={emailIcon} alt="" className="ch-tiny-icon"/> Email</span>
                     <span className={`ch-status ${subStep >= 0 ? 'ch-done' : ''}`}>{subStep >= 0 ? 'Sent' : 'Pending'}</span>
                   </div>
                   <div className="delivery-channel-row">
-                    <span className="ch-name"><img src={`${import.meta.env.BASE_URL}icons/whatsapp.png`} alt="" className="ch-tiny-icon"/> WhatsApp</span>
+                    <span className="ch-name"><img src={whatsappIcon} alt="" className="ch-tiny-icon"/> WhatsApp</span>
                     <span className={`ch-status ${subStep >= 1 ? 'ch-done' : ''}`}>{subStep >= 1 ? 'Sent' : 'Pending'}</span>
                   </div>
                   <div className="delivery-channel-row">
-                    <span className="ch-name"><img src={`${import.meta.env.BASE_URL}icons/sms.png`} alt="" className="ch-tiny-icon"/> SMS</span>
+                    <span className="ch-name"><img src={smsIcon} alt="" className="ch-tiny-icon"/> SMS</span>
                     <span className={`ch-status ${subStep >= 2 ? 'ch-done' : ''}`}>{subStep >= 2 ? 'Sent' : 'Pending'}</span>
                   </div>
                 </div>
@@ -288,3 +295,4 @@ export const HowItWorksSection: React.FC = () => {
     </section>
   );
 };
+

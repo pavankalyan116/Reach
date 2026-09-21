@@ -1,4 +1,11 @@
 import React from 'react';
+import emailIcon from '../assets/icons/gmail.png';
+import whatsappIcon from '../assets/icons/whatsapp.png';
+import smsIcon from '../assets/icons/sms.png';
+import multichannelIcon from '../assets/icons/multi-channel.png';
+import replyIcon from '../assets/icons/reply.png';
+import scheduledIcon from '../assets/icons/Scheduled.png';
+import personalizedIcon from '../assets/icons/Personalized.png';
 import { ArrowRight, Zap, Users, BarChart2 } from 'lucide-react';
 
 export const UnderstandSection: React.FC = () => {
@@ -45,7 +52,7 @@ export const UnderstandSection: React.FC = () => {
                       <div className="unified-sender-meta">
                         <span className="unified-sender-name">Sarah Chen</span>
                         <span className="unified-channel-via">
-                          <img src={`${import.meta.env.BASE_URL}icons/gmail.png`} alt="Email" className="channel-img-icon" />
+                          <img src={emailIcon} alt="Email" className="channel-img-icon" />
                           <span>Email</span>
                         </span>
                       </div>
@@ -68,7 +75,7 @@ export const UnderstandSection: React.FC = () => {
                       <div className="unified-sender-meta">
                         <span className="unified-sender-name">David Park</span>
                         <span className="unified-channel-via">
-                          <img src={`${import.meta.env.BASE_URL}icons/whatsapp.png`} alt="WhatsApp" className="channel-img-icon" />
+                          <img src={whatsappIcon} alt="WhatsApp" className="channel-img-icon" />
                           <span>WhatsApp</span>
                         </span>
                       </div>
@@ -91,7 +98,7 @@ export const UnderstandSection: React.FC = () => {
                       <div className="unified-sender-meta">
                         <span className="unified-sender-name">Maya Okafor</span>
                         <span className="unified-channel-via">
-                          <img src={`${import.meta.env.BASE_URL}icons/sms.png`} alt="SMS" className="channel-img-icon" />
+                          <img src={smsIcon} alt="SMS" className="channel-img-icon" />
                           <span>SMS</span>
                         </span>
                       </div>
@@ -167,3 +174,4 @@ export const UnderstandSection: React.FC = () => {
     </section>
   );
 };
+
