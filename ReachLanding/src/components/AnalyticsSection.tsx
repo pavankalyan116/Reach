@@ -6,12 +6,9 @@ import {
   Search, 
   MoreVertical, 
   ChevronDown,
-  Send,
-  Mail,
-  Reply,
   Calendar,
-  TrendingUp,
-  ArrowRight
+  ArrowRight,
+  TrendingUp
 } from 'lucide-react';
 
 export const AnalyticsSection: React.FC = () => {
